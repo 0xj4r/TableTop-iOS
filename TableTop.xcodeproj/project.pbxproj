@@ -10,8 +10,33 @@
 		4E112F2C19BCA07B00BFC322 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E112F2B19BCA07B00BFC322 /* AppDelegate.swift */; };
 		4E112F2E19BCA07B00BFC322 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E112F2D19BCA07B00BFC322 /* ViewController.swift */; };
 		4E112F3119BCA07B00BFC322 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E112F2F19BCA07B00BFC322 /* Main.storyboard */; };
-		4E112F3319BCA07B00BFC322 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E112F3219BCA07B00BFC322 /* Images.xcassets */; };
+		4E112F3319BCA07B00BFC322 /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E112F3219BCA07B00BFC322 /* images.xcassets */; };
 		4E112F3F19BCA07B00BFC322 /* TableTopTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E112F3E19BCA07B00BFC322 /* TableTopTests.swift */; };
+		4E112F4B19BCA4DE00BFC322 /* SideBarTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E112F4A19BCA4DE00BFC322 /* SideBarTableViewController.swift */; };
+		4E39DB0F1A296457001AAFD7 /* TableTopSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E39DB0E1A296457001AAFD7 /* TableTopSignUpViewController.swift */; };
+		4E4EFE8E19ECD046003699DC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E4EFE8D19ECD046003699DC /* MapKit.framework */; };
+		4E4EFE9019ECD04F003699DC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E4EFE8F19ECD04F003699DC /* CoreLocation.framework */; };
+		4E6104AB19FF6ABD0099A820 /* TableTopLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E6104AA19FF6ABD0099A820 /* TableTopLogo.png */; };
+		4E6104AD19FF71C80099A820 /* tabletopapplogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E6104AC19FF71C80099A820 /* tabletopapplogo.png */; };
+		4E6104AF19FF7CD50099A820 /* tabletopapplogobackupicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E6104AE19FF7CD50099A820 /* tabletopapplogobackupicon.png */; };
+		4E74E16A19D089B90046B5A9 /* SideBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E74E16919D089B90046B5A9 /* SideBar.swift */; };
+		4EA3F70D1A29560C002AC3E1 /* TableTopLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA3F70C1A29560C002AC3E1 /* TableTopLoginView.swift */; };
+		4ED589681A27A8B6009761E9 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED589671A27A8B6009761E9 /* Accounts.framework */; };
+		4ED589701A27AB02009761E9 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED5896F1A27AB02009761E9 /* Social.framework */; };
+		4ED589721A27AB12009761E9 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED589711A27AB12009761E9 /* Twitter.framework */; };
+		4ED589741A27AB22009761E9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED589731A27AB22009761E9 /* SystemConfiguration.framework */; };
+		4ED589761A27AB2C009761E9 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED589751A27AB2C009761E9 /* StoreKit.framework */; };
+		4ED589781A27AB3A009761E9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED589771A27AB3A009761E9 /* Security.framework */; };
+		4ED5897A1A27AB44009761E9 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED589791A27AB44009761E9 /* QuartzCore.framework */; };
+		4ED5897C1A27AB54009761E9 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED5897B1A27AB54009761E9 /* libz.dylib */; };
+		4ED5897E1A27AB5D009761E9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED5897D1A27AB5D009761E9 /* CoreGraphics.framework */; };
+		4ED589801A27AB67009761E9 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED5897F1A27AB67009761E9 /* CFNetwork.framework */; };
+		4ED589821A27AB70009761E9 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED589811A27AB70009761E9 /* AudioToolbox.framework */; };
+		4ED589891A27B1E6009761E9 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED589851A27B1E6009761E9 /* Bolts.framework */; };
+		4ED5898A1A27B1E6009761E9 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED589861A27B1E6009761E9 /* Parse.framework */; };
+		4ED5898B1A27B1E6009761E9 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED589871A27B1E6009761E9 /* ParseFacebookUtils.framework */; };
+		4ED5898C1A27B1E6009761E9 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED589881A27B1E6009761E9 /* ParseUI.framework */; };
+		4EDF78491A2D8AD700448F31 /* TTLogoGimp.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EDF78481A2D8AD700448F31 /* TTLogoGimp.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,10 +55,36 @@
 		4E112F2B19BCA07B00BFC322 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4E112F2D19BCA07B00BFC322 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4E112F3019BCA07B00BFC322 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		4E112F3219BCA07B00BFC322 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		4E112F3219BCA07B00BFC322 /* images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = images.xcassets; sourceTree = "<group>"; };
 		4E112F3819BCA07B00BFC322 /* TableTopTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TableTopTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E112F3D19BCA07B00BFC322 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E112F3E19BCA07B00BFC322 /* TableTopTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableTopTests.swift; sourceTree = "<group>"; };
+		4E112F4A19BCA4DE00BFC322 /* SideBarTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SideBarTableViewController.swift; path = ../SideBarTableViewController.swift; sourceTree = "<group>"; };
+		4E39DB0E1A296457001AAFD7 /* TableTopSignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableTopSignUpViewController.swift; sourceTree = "<group>"; };
+		4E4EFE8D19ECD046003699DC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		4E4EFE8F19ECD04F003699DC /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		4E6104AA19FF6ABD0099A820 /* TableTopLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TableTopLogo.png; sourceTree = "<group>"; };
+		4E6104AC19FF71C80099A820 /* tabletopapplogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabletopapplogo.png; sourceTree = "<group>"; };
+		4E6104AE19FF7CD50099A820 /* tabletopapplogobackupicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabletopapplogobackupicon.png; sourceTree = "<group>"; };
+		4E74E16919D089B90046B5A9 /* SideBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SideBar.swift; path = ../SideBar.swift; sourceTree = "<group>"; };
+		4EA3F7091A29520D002AC3E1 /* TableTop-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TableTop-Bridging-Header.h"; sourceTree = "<group>"; };
+		4EA3F70C1A29560C002AC3E1 /* TableTopLoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableTopLoginView.swift; sourceTree = "<group>"; };
+		4ED589671A27A8B6009761E9 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		4ED5896F1A27AB02009761E9 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		4ED589711A27AB12009761E9 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
+		4ED589731A27AB22009761E9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		4ED589751A27AB2C009761E9 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		4ED589771A27AB3A009761E9 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		4ED589791A27AB44009761E9 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		4ED5897B1A27AB54009761E9 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		4ED5897D1A27AB5D009761E9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		4ED5897F1A27AB67009761E9 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		4ED589811A27AB70009761E9 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		4ED589851A27B1E6009761E9 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "../../../iOS/SceneIt/parse-library-1/Bolts.framework"; sourceTree = "<group>"; };
+		4ED589861A27B1E6009761E9 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = "../../../iOS/SceneIt/parse-library-1/Parse.framework"; sourceTree = "<group>"; };
+		4ED589871A27B1E6009761E9 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseFacebookUtils.framework; path = "../../../iOS/SceneIt/parse-library-1/ParseFacebookUtils.framework"; sourceTree = "<group>"; };
+		4ED589881A27B1E6009761E9 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseUI.framework; path = "../../../iOS/SceneIt/parse-library-1/ParseUI.framework"; sourceTree = "<group>"; };
+		4EDF78481A2D8AD700448F31 /* TTLogoGimp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TTLogoGimp.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +92,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4ED589891A27B1E6009761E9 /* Bolts.framework in Frameworks */,
+				4ED5898A1A27B1E6009761E9 /* Parse.framework in Frameworks */,
+				4ED5898B1A27B1E6009761E9 /* ParseFacebookUtils.framework in Frameworks */,
+				4ED5898C1A27B1E6009761E9 /* ParseUI.framework in Frameworks */,
+				4ED589821A27AB70009761E9 /* AudioToolbox.framework in Frameworks */,
+				4ED589801A27AB67009761E9 /* CFNetwork.framework in Frameworks */,
+				4ED5897E1A27AB5D009761E9 /* CoreGraphics.framework in Frameworks */,
+				4ED5897C1A27AB54009761E9 /* libz.dylib in Frameworks */,
+				4ED5897A1A27AB44009761E9 /* QuartzCore.framework in Frameworks */,
+				4ED589781A27AB3A009761E9 /* Security.framework in Frameworks */,
+				4ED589761A27AB2C009761E9 /* StoreKit.framework in Frameworks */,
+				4ED589741A27AB22009761E9 /* SystemConfiguration.framework in Frameworks */,
+				4ED589721A27AB12009761E9 /* Twitter.framework in Frameworks */,
+				4ED589701A27AB02009761E9 /* Social.framework in Frameworks */,
+				4ED589681A27A8B6009761E9 /* Accounts.framework in Frameworks */,
+				4E4EFE9019ECD04F003699DC /* CoreLocation.framework in Frameworks */,
+				4E4EFE8E19ECD046003699DC /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,6 +128,7 @@
 				4E112F2819BCA07B00BFC322 /* TableTop */,
 				4E112F3B19BCA07B00BFC322 /* TableTopTests */,
 				4E112F2719BCA07B00BFC322 /* Products */,
+				4EC0CCE01A279A950016727D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -75,11 +144,17 @@
 		4E112F2819BCA07B00BFC322 /* TableTop */ = {
 			isa = PBXGroup;
 			children = (
+				4E112F2A19BCA07B00BFC322 /* Info.plist */,
 				4E112F2B19BCA07B00BFC322 /* AppDelegate.swift */,
+				4E112F4A19BCA4DE00BFC322 /* SideBarTableViewController.swift */,
+				4EA3F70C1A29560C002AC3E1 /* TableTopLoginView.swift */,
+				4E39DB0E1A296457001AAFD7 /* TableTopSignUpViewController.swift */,
 				4E112F2D19BCA07B00BFC322 /* ViewController.swift */,
+				4E74E16919D089B90046B5A9 /* SideBar.swift */,
 				4E112F2F19BCA07B00BFC322 /* Main.storyboard */,
-				4E112F3219BCA07B00BFC322 /* Images.xcassets */,
+				4E112F3219BCA07B00BFC322 /* images.xcassets */,
 				4E112F2919BCA07B00BFC322 /* Supporting Files */,
+				4EA3F7091A29520D002AC3E1 /* TableTop-Bridging-Header.h */,
 			);
 			path = TableTop;
 			sourceTree = "<group>";
@@ -87,7 +162,10 @@
 		4E112F2919BCA07B00BFC322 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				4E112F2A19BCA07B00BFC322 /* Info.plist */,
+				4EDF78481A2D8AD700448F31 /* TTLogoGimp.png */,
+				4E6104AC19FF71C80099A820 /* tabletopapplogo.png */,
+				4E6104AE19FF7CD50099A820 /* tabletopapplogobackupicon.png */,
+				4E6104AA19FF6ABD0099A820 /* TableTopLogo.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -107,6 +185,30 @@
 				4E112F3D19BCA07B00BFC322 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4EC0CCE01A279A950016727D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4ED589851A27B1E6009761E9 /* Bolts.framework */,
+				4ED589861A27B1E6009761E9 /* Parse.framework */,
+				4ED589871A27B1E6009761E9 /* ParseFacebookUtils.framework */,
+				4ED589881A27B1E6009761E9 /* ParseUI.framework */,
+				4ED589811A27AB70009761E9 /* AudioToolbox.framework */,
+				4ED5897F1A27AB67009761E9 /* CFNetwork.framework */,
+				4ED5897D1A27AB5D009761E9 /* CoreGraphics.framework */,
+				4ED5897B1A27AB54009761E9 /* libz.dylib */,
+				4ED589791A27AB44009761E9 /* QuartzCore.framework */,
+				4ED589771A27AB3A009761E9 /* Security.framework */,
+				4ED589751A27AB2C009761E9 /* StoreKit.framework */,
+				4ED589731A27AB22009761E9 /* SystemConfiguration.framework */,
+				4ED589711A27AB12009761E9 /* Twitter.framework */,
+				4ED5896F1A27AB02009761E9 /* Social.framework */,
+				4ED589671A27A8B6009761E9 /* Accounts.framework */,
+				4E4EFE8F19ECD04F003699DC /* CoreLocation.framework */,
+				4E4EFE8D19ECD046003699DC /* MapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,8 +291,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E6104AB19FF6ABD0099A820 /* TableTopLogo.png in Resources */,
 				4E112F3119BCA07B00BFC322 /* Main.storyboard in Resources */,
-				4E112F3319BCA07B00BFC322 /* Images.xcassets in Resources */,
+				4E112F3319BCA07B00BFC322 /* images.xcassets in Resources */,
+				4EDF78491A2D8AD700448F31 /* TTLogoGimp.png in Resources */,
+				4E6104AF19FF7CD50099A820 /* tabletopapplogobackupicon.png in Resources */,
+				4E6104AD19FF71C80099A820 /* tabletopapplogo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,7 +315,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E112F2E19BCA07B00BFC322 /* ViewController.swift in Sources */,
+				4E112F4B19BCA4DE00BFC322 /* SideBarTableViewController.swift in Sources */,
+				4EA3F70D1A29560C002AC3E1 /* TableTopLoginView.swift in Sources */,
+				4E74E16A19D089B90046B5A9 /* SideBar.swift in Sources */,
 				4E112F2C19BCA07B00BFC322 /* AppDelegate.swift in Sources */,
+				4E39DB0F1A296457001AAFD7 /* TableTopSignUpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,9 +435,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"/Volumes/HDD/Users/joshRansom/workspaces/iOS/SceneIt/parse-library-1",
+				);
 				INFOPLIST_FILE = TableTop/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TableTop/TableTop-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -336,9 +454,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"/Volumes/HDD/Users/joshRansom/workspaces/iOS/SceneIt/parse-library-1",
+				);
 				INFOPLIST_FILE = TableTop/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TableTop/TableTop-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -395,6 +520,7 @@
 				4E112F4419BCA07B00BFC322 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4E112F4519BCA07B00BFC322 /* Build configuration list for PBXNativeTarget "TableTopTests" */ = {
 			isa = XCConfigurationList;
@@ -403,6 +529,7 @@
 				4E112F4719BCA07B00BFC322 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

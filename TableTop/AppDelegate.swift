@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication!, didFinishLaunchingWithOptions launchOptions: NSDictionary!) -> Bool {
         // Override point for customization after application launch.
+        
+        let path = NSBundle.mainBundle().pathForResource("Info", ofType: "plist")
+        if let dict = NSDictionary(contentsOfFile: path!){
+        let envVariables = dict.valueForKey("LSEnvironment") as? NSDictionary
+        let appID = envVariables?.valueForKey("parseAppID") as? String
+        let clientKey = envVariables?.valueForKey("parseClientKey") as? String
+        Parse.setApplicationId(appID, clientKey: clientKey)
+
+        }
+        else {
+            NSLog("APP SETTINGS FILE NOT FOUND. DID YOU FORGET YOUR PLIST?")
+        }
+        
+        
+        
+//        var testObject = PFObject(className: "TestObject")
+//        testObject["foo"] = "bar"
+//        testObject.saveInBackgroundWithTarget(nil , selector: nil )
+
         return true
     }
 
