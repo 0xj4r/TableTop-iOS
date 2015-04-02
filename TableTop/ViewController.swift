@@ -165,6 +165,7 @@ class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelega
         self.searchBar.resignFirstResponder()
         var searchRequest = MKLocalSearchRequest()
             searchRequest.naturalLanguageQuery = self.searchBar.text
+        var requestToQueryParse = self.searchBar.text
         searchRequest.region = MKCoordinateRegionMake(self.mapView.userLocation.coordinate, MKCoordinateSpanMake(0.01, 0.01))
         var localSearch = MKLocalSearch(request: searchRequest)
         var searchResponse = MKLocalSearchResponse()
@@ -197,9 +198,41 @@ class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelega
                 var annoView = MKPinAnnotationView(annotation: myAnnotation, reuseIdentifier: id)
                 self.mapView.viewForAnnotation(myAnnotation)
                 self.mapView.addAnnotation(myAnnotation)
+                buildAndSendParseQueryForLocations(each)
                 intCount++
             }
             
+        }
+    }
+    
+    func buildAndSendParseQueryForLocations(mapItem: MKMapItem) -> Void {
+        var query = PFQuery(className: "Restaurant")
+        var geoPointCoordinate = PFGeoPoint(latitude: mapItem.placemark.coordinate.latitude, longitude: mapItem.placemark.coordinate.longitude)
+        query.whereKey("latLong", nearGeoPoint: geoPointCoordinate, withinMiles: 15.0)
+        query.findObjectsInBackgroundWithBlock {
+            (objects: [AnyObject]!, error: NSError!) -> Void in
+            if error == nil {
+                // The find succeeded.
+                println("Successfully retrieved \(objects.count) map items.")
+                // Do something with the found objects
+                if let objects = objects as? [PFObject] {
+                    for object in objects {
+                        println(object.objectId)
+                        var myAnnotation = MKPointAnnotation()
+                        myAnnotation.title = object.valueForKey("restaurantName") as String!
+                        var geoPoint = object.objectForKey("latLong") as PFGeoPoint!
+                        var annotationLoc = CLLocationCoordinate2D(latitude: geoPoint.latitude, longitude: geoPoint.longitude)
+                        myAnnotation.setCoordinate(annotationLoc)
+                        var annoView = MKPinAnnotationView(annotation: myAnnotation, reuseIdentifier: object.objectId)
+                        self.mapView.viewForAnnotation(myAnnotation)
+                        self.mapView.addAnnotation(myAnnotation)
+                    }
+                }
+                //Magic stuff happens here
+            } else {
+                // Log details of the failure
+                println("Error: \(error) \(error.userInfo!)")
+            }
         }
     }
 }
