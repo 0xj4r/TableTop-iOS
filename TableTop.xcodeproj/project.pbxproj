@@ -14,6 +14,7 @@
 		4E112F3F19BCA07B00BFC322 /* TableTopTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E112F3E19BCA07B00BFC322 /* TableTopTests.swift */; };
 		4E112F4B19BCA4DE00BFC322 /* SideBarTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E112F4A19BCA4DE00BFC322 /* SideBarTableViewController.swift */; };
 		4E1E8B671ACD97D400059752 /* home.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4E1E8B661ACD97D400059752 /* home.gpx */; };
+		4E1E8B691ACD9BEE00059752 /* asu.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4E1E8B681ACD9BEE00059752 /* asu.gpx */; };
 		4E39DB0F1A296457001AAFD7 /* TableTopSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E39DB0E1A296457001AAFD7 /* TableTopSignUpViewController.swift */; };
 		4E4EFE8E19ECD046003699DC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E4EFE8D19ECD046003699DC /* MapKit.framework */; };
 		4E4EFE9019ECD04F003699DC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E4EFE8F19ECD04F003699DC /* CoreLocation.framework */; };
@@ -62,6 +63,7 @@
 		4E112F3E19BCA07B00BFC322 /* TableTopTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableTopTests.swift; sourceTree = "<group>"; };
 		4E112F4A19BCA4DE00BFC322 /* SideBarTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SideBarTableViewController.swift; path = ../SideBarTableViewController.swift; sourceTree = "<group>"; };
 		4E1E8B661ACD97D400059752 /* home.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = home.gpx; sourceTree = "<group>"; };
+		4E1E8B681ACD9BEE00059752 /* asu.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = asu.gpx; sourceTree = "<group>"; };
 		4E39DB0E1A296457001AAFD7 /* TableTopSignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableTopSignUpViewController.swift; sourceTree = "<group>"; };
 		4E4EFE8D19ECD046003699DC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		4E4EFE8F19ECD04F003699DC /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -127,6 +129,7 @@
 		4E112F1D19BCA07B00BFC322 = {
 			isa = PBXGroup;
 			children = (
+				4E1E8B681ACD9BEE00059752 /* asu.gpx */,
 				4E1E8B661ACD97D400059752 /* home.gpx */,
 				4E112F2819BCA07B00BFC322 /* TableTop */,
 				4E112F3B19BCA07B00BFC322 /* TableTopTests */,
@@ -299,6 +302,7 @@
 				4E112F3319BCA07B00BFC322 /* images.xcassets in Resources */,
 				4EDF78491A2D8AD700448F31 /* TTLogoGimp.png in Resources */,
 				4E6104AF19FF7CD50099A820 /* tabletopapplogobackupicon.png in Resources */,
+				4E1E8B691ACD9BEE00059752 /* asu.gpx in Resources */,
 				4E6104AD19FF71C80099A820 /* tabletopapplogo.png in Resources */,
 				4E1E8B671ACD97D400059752 /* home.gpx in Resources */,
 			);
