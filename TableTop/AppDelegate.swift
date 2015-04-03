@@ -17,14 +17,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication!, didFinishLaunchingWithOptions launchOptions: NSDictionary!) -> Bool {
         // Override point for customization after application launch.
+        // If add to plist make sure you copy everyone else on it. 
         
         let path = NSBundle.mainBundle().pathForResource("Info", ofType: "plist")
         if let dict = NSDictionary(contentsOfFile: path!){
-        let envVariables = dict.valueForKey("LSEnvironment") as? NSDictionary
-        let appID = envVariables?.valueForKey("parseAppID") as? String
-        let clientKey = envVariables?.valueForKey("parseClientKey") as? String
-        Parse.setApplicationId(appID, clientKey: clientKey)
-
+            let envVariables = dict.valueForKey("LSEnvironment") as? NSDictionary
+            let appID = envVariables?.valueForKey("parseAppID") as? String
+            let clientKey = envVariables?.valueForKey("parseClientKey") as? String
+            Parse.setApplicationId(appID, clientKey: clientKey)
         }
         else {
             NSLog("APP SETTINGS FILE NOT FOUND. DID YOU FORGET YOUR PLIST?")
