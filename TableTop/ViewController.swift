@@ -267,6 +267,7 @@ class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelega
     }
     func signUpViewControllerDidCancelSignUp(signUpController: PFSignUpViewController!) {
         NSLog("User dismissed signup")
+    }
 
     
     //combine found lists of items
@@ -339,7 +340,5 @@ class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelega
         }
         var region = MKCoordinateRegionMakeWithDistance(self.mapView.userLocation.coordinate, MilesToMeters(searchRadius), MilesToMeters(searchRadius))
         self.mapView.setRegion(region, animated: true)
-
     }
 }
-

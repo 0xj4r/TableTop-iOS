@@ -15,13 +15,6 @@
 		4E112F4B19BCA4DE00BFC322 /* SideBarTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E112F4A19BCA4DE00BFC322 /* SideBarTableViewController.swift */; };
 		4E1E8B671ACD97D400059752 /* home.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4E1E8B661ACD97D400059752 /* home.gpx */; };
 		4E1E8B691ACD9BEE00059752 /* asu.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4E1E8B681ACD9BEE00059752 /* asu.gpx */; };
-		4E1E8B6D1ACDA28800059752 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E1E8B6C1ACDA28800059752 /* Parse.framework */; };
-		4E1E8B6E1ACDA2B000059752 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EBA41391ACBB25400BF114A /* ParseUI.framework */; };
-		4E1E8B701ACDA8E500059752 /* TableTopAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1E8B6F1ACDA8E500059752 /* TableTopAnnotationView.swift */; };
-		4E1E8B721ACDBE1E00059752 /* checkedStar.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E1E8B711ACDBE1E00059752 /* checkedStar.png */; };
-		4E1E8B741ACDCF8800059752 /* TTMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1E8B731ACDCF8700059752 /* TTMapView.swift */; };
-		4E1E8B761ACDE5D600059752 /* uncheckedStar.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E1E8B751ACDE5D600059752 /* uncheckedStar.png */; };
-		4E1E8B781ACDEB4400059752 /* tabletopmapicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E1E8B771ACDEB4400059752 /* tabletopmapicon.png */; };
 		4E39DB0F1A296457001AAFD7 /* TableTopSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E39DB0E1A296457001AAFD7 /* TableTopSignUpViewController.swift */; };
 		4E4EFE8E19ECD046003699DC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E4EFE8D19ECD046003699DC /* MapKit.framework */; };
 		4E4EFE9019ECD04F003699DC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E4EFE8F19ECD04F003699DC /* CoreLocation.framework */; };
@@ -42,9 +35,11 @@
 		4ED589801A27AB67009761E9 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED5897F1A27AB67009761E9 /* CFNetwork.framework */; };
 		4ED589821A27AB70009761E9 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED589811A27AB70009761E9 /* AudioToolbox.framework */; };
 		4EDF78491A2D8AD700448F31 /* TTLogoGimp.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EDF78481A2D8AD700448F31 /* TTLogoGimp.png */; };
+		4EED2E6D1ACE586100B06118 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EBA41351ACBB23800BF114A /* Bolts.framework */; };
+		4EED2E6E1ACE586E00B06118 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EBA413D1ACBB34100BF114A /* Parse.framework */; };
+		4EED2E6F1ACE587B00B06118 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EBA413B1ACBB26D00BF114A /* ParseFacebookUtils.framework */; };
+		4EED2E701ACE588A00B06118 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EBA41391ACBB25400BF114A /* ParseUI.framework */; };
 		7E7C8FEC1ACDBF5A00F3F978 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E7C8FEB1ACDBF5900F3F978 /* Restaurant.swift */; };
-		7EBA41361ACBB23800BF114A /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EBA41351ACBB23800BF114A /* Bolts.framework */; };
-		7EBA413C1ACBB26D00BF114A /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EBA413B1ACBB26D00BF114A /* ParseFacebookUtils.framework */; };
 		7EBA41421ACBB58F00BF114A /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EBA41411ACBB58F00BF114A /* libsqlite3.0.dylib */; };
 /* End PBXBuildFile section */
 
@@ -68,14 +63,8 @@
 		4E112F3D19BCA07B00BFC322 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E112F3E19BCA07B00BFC322 /* TableTopTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableTopTests.swift; sourceTree = "<group>"; };
 		4E112F4A19BCA4DE00BFC322 /* SideBarTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SideBarTableViewController.swift; path = ../SideBarTableViewController.swift; sourceTree = "<group>"; };
-		4E1E8B661ACD97D400059752 /* home.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = home.gpx; path = ../home.gpx; sourceTree = "<group>"; };
-		4E1E8B681ACD9BEE00059752 /* asu.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = asu.gpx; path = ../asu.gpx; sourceTree = "<group>"; };
-		4E1E8B6C1ACDA28800059752 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = "../parse-library-1/Parse.framework"; sourceTree = "<group>"; };
-		4E1E8B6F1ACDA8E500059752 /* TableTopAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableTopAnnotationView.swift; sourceTree = "<group>"; };
-		4E1E8B711ACDBE1E00059752 /* checkedStar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkedStar.png; sourceTree = "<group>"; };
-		4E1E8B731ACDCF8700059752 /* TTMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTMapView.swift; sourceTree = "<group>"; };
-		4E1E8B751ACDE5D600059752 /* uncheckedStar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = uncheckedStar.png; sourceTree = "<group>"; };
-		4E1E8B771ACDEB4400059752 /* tabletopmapicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabletopmapicon.png; sourceTree = "<group>"; };
+		4E1E8B661ACD97D400059752 /* home.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = home.gpx; sourceTree = "<group>"; };
+		4E1E8B681ACD9BEE00059752 /* asu.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = asu.gpx; sourceTree = "<group>"; };
 		4E39DB0E1A296457001AAFD7 /* TableTopSignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableTopSignUpViewController.swift; sourceTree = "<group>"; };
 		4E4EFE8D19ECD046003699DC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		4E4EFE8F19ECD04F003699DC /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -97,9 +86,11 @@
 		4ED5897F1A27AB67009761E9 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		4ED589811A27AB70009761E9 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		4EDF78481A2D8AD700448F31 /* TTLogoGimp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TTLogoGimp.png; sourceTree = "<group>"; };
-
-		7E7C8FEB1ACDBF5900F3F978 /* Restaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; }
-
+		7E7C8FEB1ACDBF5900F3F978 /* Restaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		7EBA41351ACBB23800BF114A /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "../parse-library-1/Bolts.framework"; sourceTree = "<group>"; };
+		7EBA41391ACBB25400BF114A /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseUI.framework; path = "../parse-library-1/ParseUI.framework"; sourceTree = "<group>"; };
+		7EBA413B1ACBB26D00BF114A /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseFacebookUtils.framework; path = "../parse-library-1/ParseFacebookUtils.framework"; sourceTree = "<group>"; };
+		7EBA413D1ACBB34100BF114A /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = "../parse-library-1/Parse.framework"; sourceTree = "<group>"; };
 		7EBA413F1ACBB4EF00BF114A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7EBA41411ACBB58F00BF114A /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -109,8 +100,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4E1E8B6E1ACDA2B000059752 /* ParseUI.framework in Frameworks */,
-				4E1E8B6D1ACDA28800059752 /* Parse.framework in Frameworks */,
+				4EED2E701ACE588A00B06118 /* ParseUI.framework in Frameworks */,
+				4EED2E6F1ACE587B00B06118 /* ParseFacebookUtils.framework in Frameworks */,
+				4EED2E6E1ACE586E00B06118 /* Parse.framework in Frameworks */,
+				4EED2E6D1ACE586100B06118 /* Bolts.framework in Frameworks */,
 				7EBA41421ACBB58F00BF114A /* libsqlite3.0.dylib in Frameworks */,
 				4ED589821A27AB70009761E9 /* AudioToolbox.framework in Frameworks */,
 				4ED589801A27AB67009761E9 /* CFNetwork.framework in Frameworks */,
@@ -123,9 +116,7 @@
 				4ED589721A27AB12009761E9 /* Twitter.framework in Frameworks */,
 				4ED589701A27AB02009761E9 /* Social.framework in Frameworks */,
 				4ED589681A27A8B6009761E9 /* Accounts.framework in Frameworks */,
-				7EBA41361ACBB23800BF114A /* Bolts.framework in Frameworks */,
 				4E4EFE9019ECD04F003699DC /* CoreLocation.framework in Frameworks */,
-				7EBA413C1ACBB26D00BF114A /* ParseFacebookUtils.framework in Frameworks */,
 				4E4EFE8E19ECD046003699DC /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -143,6 +134,8 @@
 		4E112F1D19BCA07B00BFC322 = {
 			isa = PBXGroup;
 			children = (
+				4E1E8B681ACD9BEE00059752 /* asu.gpx */,
+				4E1E8B661ACD97D400059752 /* home.gpx */,
 				4E112F2819BCA07B00BFC322 /* TableTop */,
 				4E112F3B19BCA07B00BFC322 /* TableTopTests */,
 				4E112F2719BCA07B00BFC322 /* Products */,
@@ -168,12 +161,7 @@
 				4EA3F70C1A29560C002AC3E1 /* TableTopLoginView.swift */,
 				4E39DB0E1A296457001AAFD7 /* TableTopSignUpViewController.swift */,
 				4E112F2D19BCA07B00BFC322 /* ViewController.swift */,
-<<<<<<< HEAD
-				4E1E8B731ACDCF8700059752 /* TTMapView.swift */,
-				4E1E8B6F1ACDA8E500059752 /* TableTopAnnotationView.swift */,
-=======
 				7E7C8FEB1ACDBF5900F3F978 /* Restaurant.swift */,
->>>>>>> master
 				4E74E16919D089B90046B5A9 /* SideBar.swift */,
 				4E112F2F19BCA07B00BFC322 /* Main.storyboard */,
 				4E112F3219BCA07B00BFC322 /* images.xcassets */,
@@ -186,11 +174,6 @@
 		4E112F2919BCA07B00BFC322 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				4E1E8B771ACDEB4400059752 /* tabletopmapicon.png */,
-				4E1E8B751ACDE5D600059752 /* uncheckedStar.png */,
-				4E1E8B681ACD9BEE00059752 /* asu.gpx */,
-				4E1E8B711ACDBE1E00059752 /* checkedStar.png */,
-				4E1E8B661ACD97D400059752 /* home.gpx */,
 				4EDF78481A2D8AD700448F31 /* TTLogoGimp.png */,
 				4E6104AC19FF71C80099A820 /* tabletopapplogo.png */,
 				4E6104AE19FF7CD50099A820 /* tabletopapplogobackupicon.png */,
@@ -219,8 +202,8 @@
 		4EC0CCE01A279A950016727D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4E1E8B6C1ACDA28800059752 /* Parse.framework */,
 				7EBA41411ACBB58F00BF114A /* libsqlite3.0.dylib */,
+				7EBA413D1ACBB34100BF114A /* Parse.framework */,
 				7EBA413B1ACBB26D00BF114A /* ParseFacebookUtils.framework */,
 				7EBA41351ACBB23800BF114A /* Bolts.framework */,
 				7EBA41391ACBB25400BF114A /* ParseUI.framework */,
@@ -323,15 +306,12 @@
 			files = (
 				4E6104AB19FF6ABD0099A820 /* TableTopLogo.png in Resources */,
 				4E112F3119BCA07B00BFC322 /* Main.storyboard in Resources */,
-				4E1E8B761ACDE5D600059752 /* uncheckedStar.png in Resources */,
 				4E112F3319BCA07B00BFC322 /* images.xcassets in Resources */,
 				4EDF78491A2D8AD700448F31 /* TTLogoGimp.png in Resources */,
 				4E6104AF19FF7CD50099A820 /* tabletopapplogobackupicon.png in Resources */,
 				4E1E8B691ACD9BEE00059752 /* asu.gpx in Resources */,
 				4E6104AD19FF71C80099A820 /* tabletopapplogo.png in Resources */,
-				4E1E8B781ACDEB4400059752 /* tabletopmapicon.png in Resources */,
 				4E1E8B671ACD97D400059752 /* home.gpx in Resources */,
-				4E1E8B721ACDBE1E00059752 /* checkedStar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,14 +332,9 @@
 				4E112F2E19BCA07B00BFC322 /* ViewController.swift in Sources */,
 				4E112F4B19BCA4DE00BFC322 /* SideBarTableViewController.swift in Sources */,
 				4EA3F70D1A29560C002AC3E1 /* TableTopLoginView.swift in Sources */,
-<<<<<<< HEAD
-				4E1E8B741ACDCF8800059752 /* TTMapView.swift in Sources */,
-=======
 				7E7C8FEC1ACDBF5A00F3F978 /* Restaurant.swift in Sources */,
->>>>>>> master
 				4E74E16A19D089B90046B5A9 /* SideBar.swift in Sources */,
 				4E112F2C19BCA07B00BFC322 /* AppDelegate.swift in Sources */,
-				4E1E8B701ACDA8E500059752 /* TableTopAnnotationView.swift in Sources */,
 				4E39DB0F1A296457001AAFD7 /* TableTopSignUpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
