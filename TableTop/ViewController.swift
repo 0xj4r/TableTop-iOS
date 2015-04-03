@@ -256,8 +256,10 @@ class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelega
                 var dist = pRestLoc.distanceFromLocation(mRestLoc)
                 if (dist < 20.0 ){
                     mergedRestaurauntsList.append(pRest)
-                    parseRestaurantResponses.removeAtIndex(find(parseRestaurantResponses, pRest) as Int!)
-                    println(find(parseRestaurantResponses, pRest) as Int!)
+                    if let indexToRemove = find(parseRestaurantResponses, pRest) as Int!
+                    {
+                        parseRestaurantResponses.removeAtIndex(indexToRemove)
+                    }
                 }
             }
         }
@@ -308,6 +310,8 @@ class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelega
         {
             searchRadius = 5.0
         }
+        var region = MKCoordinateRegionMakeWithDistance(self.mapView.userLocation.coordinate, MilesToMeters(searchRadius), MilesToMeters(searchRadius))
+        self.mapView.setRegion(region, animated: true)
     }
 }
 
