@@ -13,15 +13,10 @@ class TableTopLoginView: PFLogInViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.logInView.logo = UIImageView(image: UIImage(named: "TTLogoGimp.png"))
-
         self.logInView.backgroundColor = colorize(0xED8337, alpha: 1.0)
             //UIColor(red: 237, green: 131, blue: 55, alpha: 1)
        self.logInView.logo.sizeThatFits(CGSizeMake(self.view.frame.width, 250))
-
-
-        
     }
     
     override func viewDidLayoutSubviews() {
@@ -33,7 +28,6 @@ class TableTopLoginView: PFLogInViewController {
         self.logInView.passwordField.frame = CGRectMake(0, CGFloat(195+i), self.view.frame.width, 50)
         self.logInView.logInButton.frame = CGRectMake(0, CGFloat(i + 245), self.view.frame.width, 50)
         self.logInView.passwordForgottenButton.frame = CGRectMake(0, CGFloat(300 + i), self.view.frame.width, 30)
-        
         //        CGRect
         //        self.logInView.frame = CGRectMake(35.0, 145.0, 250.0, 100.0)
     }
@@ -44,7 +38,7 @@ class TableTopLoginView: PFLogInViewController {
         let red = Double((hex & 0xFF0000) >> 16) / 255.0
         let green = Double((hex & 0xFF00) >> 8) / 255.0
         let blue = Double((hex & 0xFF)) / 255.0
-        var color: UIColor = UIColor( red: CGFloat(red), green: CGFloat(green), blue: CGFloat(blue), alpha:CGFloat(alpha) )
+        var color: UIColor = UIColor( red: CGFloat(red), green: CGFloat(green), blue: CGFloat(blue), alpha:CGFloat(alpha))
         return color
     }
 }

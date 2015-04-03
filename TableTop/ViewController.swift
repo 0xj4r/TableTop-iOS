@@ -38,32 +38,17 @@ class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if(PFUser.currentUser() == nil){
-            var logInViewController = TableTopLoginView()
-            logInViewController.delegate = self
-            
-            var signUpViewController = TableTopSignUpViewController ()
-            signUpViewController.delegate = self
-            logInViewController.signUpController=signUpViewController
-            
-            logInViewController.fields = PFLogInFields.Default | PFLogInFields.Twitter | PFLogInFields.Facebook | PFLogInFields.DismissButton | PFLogInFields.SignUpButton
-        
-            self.presentViewController(logInViewController, animated: true , completion: nil)
-        }
-        
+        checkForCurrentUser()
         
         var locAuthCheck = CLLocationManager.locationServicesEnabled() // Checks to see if the app has permission for user's location.
         
-        
         cllManager.desiredAccuracy = kCLLocationAccuracyBest
-        cllManager.distanceFilter = 10.0 // 100 meters between updates.
+        cllManager.distanceFilter = 100.0 // 100 meters between updates.
         cllManager.requestWhenInUseAuthorization()
         cllManager.startUpdatingLocation()
         
-        
         var latDelta:CLLocationDegrees = 0.01
         var longDelta:CLLocationDegrees = 0.01
-        
         var theSpan:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, longDelta)
 
         
@@ -77,64 +62,27 @@ class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelega
         sideBar.delegate = self
         // Do any additional setup after loading the view, typically from a nib.
         self.searchBar.delegate = self
-
     }
 
         func logInViewController(logInController: PFLogInViewController!, shouldBeginLogInWithUsername username: String!, password: String!) -> Bool {
             if (username != nil && password != nil) {
                 return true
             }
-            
             var alert = UIAlertView(title: "Missing Information", message: "Make sure you fill out all of the information", delegate: nil, cancelButtonTitle: "ok", otherButtonTitles: "")
             alert.show()
             return false
-            
-        }
-        
-        func logInViewController(logInController: PFLogInViewController!, didLogInUser user: PFUser!) {
-            
-            self.dismissViewControllerAnimated(true , completion: nil)
-            
-        }
-        
-        
-        func logInViewController(logInController: PFLogInViewController!, didFailToLogInWithError error: NSError!) {
-            NSLog("Could not log in. Please try again")
-            
-        }
-        
-        func signUpViewController(signUpController: PFSignUpViewController!, didSignUpUser user: PFUser!) {
-            self.dismissViewControllerAnimated(true , completion: nil)
-            
-        }
-        
-        func signUpViewController(signUpController: PFSignUpViewController!, didFailToSignUpWithError error: NSError!) {
-            NSLog("Failed to Signup")
-        }
-        
-        
-        func signUpViewControllerDidCancelSignUp(signUpController: PFSignUpViewController!) {
-            NSLog("User dismissed signup")
         }
     
-        
-        
-        
-        
-    
-        
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-     func sideBarDidSelectButtonAtIndex(index: Int) {
+    func sideBarDidSelectButtonAtIndex(index: Int) {
         if index == 0 {
         } else if index == 1{
                   }
     }
-    
-    
     
     @IBAction func searchBarButtonClicked(sender: UIBarButtonItem) {
         if self.searchBar.hidden {
@@ -149,7 +97,7 @@ class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelega
     }
     
     func mapView(mapView: MKMapView!, didUpdateUserLocation userLocation: MKUserLocation!) {
-        self.mapView.setRegion(MKCoordinateRegionMake(self.mapView.userLocation.coordinate, MKCoordinateSpanMake(0.01, 0.01)), animated: true)
+        self.mapView.setRegion(MKCoordinateRegionMake(self.mapView.userLocation.coordinate, MKCoordinateSpanMake(0.0081, 0.0081)), animated: true)
     }
         // Not used.
     
@@ -158,9 +106,22 @@ class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelega
             sideBar.showSideBar(false)
         }
         else {
-            sideBar.showSideBar(true) }
+            sideBar.showSideBar(true)
+        }
     }
 
+    func checkForCurrentUser() {
+        if(PFUser.currentUser() == nil){
+            var logInViewController = TableTopLoginView()
+            var signUpViewController = TableTopSignUpViewController ()
+            logInViewController.delegate = self
+            signUpViewController.delegate = self
+            logInViewController.signUpController=signUpViewController
+            logInViewController.fields = PFLogInFields.Default | PFLogInFields.Twitter | PFLogInFields.Facebook | PFLogInFields.DismissButton | PFLogInFields.SignUpButton
+            self.presentViewController(logInViewController, animated: true , completion: nil)
+        }
+    }
+    
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         self.searchBar.resignFirstResponder()
         var searchRequest = MKLocalSearchRequest()
@@ -177,15 +138,40 @@ class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelega
         searchBar.resignFirstResponder()
     }
     
-    // Add items to map when searched. 
+    func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
+        if (annotation.isKindOfClass(MKUserLocation)){
+            return nil
+        }
+        if(annotation.isKindOfClass(MKPointAnnotation)) {
+            var pinView = MKAnnotationView(annotation: annotation, reuseIdentifier: "CustomPinAnnotationView")
+            pinView.canShowCallout = true
+            var annotationIcon = UIImage(named: "tabletopmapicon.png")
+            pinView.image = annotationIcon
+            pinView.calloutOffset = CGPointMake(0, 0)
+            pinView.tintColor = UIColor.lightGrayColor()
+            var favoritesImage = UIImage(named: "uncheckedStar.png")
+            var frame = CGRect(x: 0, y: 0, width: 40, height: 40)
+            var buttonView = UIView(frame: frame)
+            let favButton = UIButton.buttonWithType(UIButtonType.System) as UIButton
+            favButton.frame = frame
+            favButton.setImage(favoritesImage, forState: .Normal)
+            favButton.addTarget(self, action: "favButton_Pressed", forControlEvents: UIControlEvents.TouchUpInside)
+            buttonView.addSubview(favButton)
+            pinView.leftCalloutAccessoryView = buttonView
+            return pinView
+        }
+        return  nil
+    }
     
+    @IBAction func favButton_Pressed(sender:AnyObject!) {
+        NSLog("That's my Fav");
+    }
+    
+    // Add items to map when searched.
     func searchResultsHandler(response: MKLocalSearchResponse!, error: NSError!) -> Void {
         if let gotError = error { }
-        else
-        {
-        self.mapView.removeAnnotations(self.mapView.annotations!)
-            
-        //println("COUNT : \(response.mapItems.count)")
+        else {
+            self.mapView.removeAnnotations(self.mapView.annotations!)
             var placemarks:[CLPlacemark] = []
             var items: [MKMapItem] = response.mapItems as [MKMapItem]
             var intCount = 0
@@ -198,10 +184,9 @@ class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelega
                 var annoView = MKPinAnnotationView(annotation: myAnnotation, reuseIdentifier: id)
                 self.mapView.viewForAnnotation(myAnnotation)
                 self.mapView.addAnnotation(myAnnotation)
-                buildAndSendParseQueryForLocations(each)
+//                buildAndSendParseQueryForLocations(each)
                 intCount++
             }
-            
         }
     }
     
@@ -224,6 +209,8 @@ class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelega
                         var annotationLoc = CLLocationCoordinate2D(latitude: geoPoint.latitude, longitude: geoPoint.longitude)
                         myAnnotation.setCoordinate(annotationLoc)
                         var annoView = MKPinAnnotationView(annotation: myAnnotation, reuseIdentifier: object.objectId)
+                        var right:UIButton = UIButton.buttonWithType(UIButtonType.DetailDisclosure) as UIButton
+                        annoView.rightCalloutAccessoryView = right
                         self.mapView.viewForAnnotation(myAnnotation)
                         self.mapView.addAnnotation(myAnnotation)
                     }
@@ -234,6 +221,28 @@ class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelega
                 println("Error: \(error) \(error.userInfo!)")
             }
         }
+    }
+
+    func mapView(mapView: MKMapView!, annotationView: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if control == annotationView.leftCalloutAccessoryView {
+            NSLog("LEFT CALLOUT")
+        }
+    }
+    
+    func logInViewController(logInController: PFLogInViewController!, didLogInUser user: PFUser!) {
+        self.dismissViewControllerAnimated(true , completion: nil)
+    }
+    func logInViewController(logInController: PFLogInViewController!, didFailToLogInWithError error: NSError!) {
+        NSLog("Could not log in. Please try again")
+    }
+    func signUpViewController(signUpController: PFSignUpViewController!, didSignUpUser user: PFUser!) {
+        self.dismissViewControllerAnimated(true , completion: nil)
+    }
+    func signUpViewController(signUpController: PFSignUpViewController!, didFailToSignUpWithError error: NSError!) {
+        NSLog("Failed to Signup")
+    }
+    func signUpViewControllerDidCancelSignUp(signUpController: PFSignUpViewController!) {
+        NSLog("User dismissed signup")
     }
 }
 
