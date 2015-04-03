@@ -34,11 +34,17 @@ class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelega
     var sideBar:SideBar = SideBar()
     var cllManager = CLLocationManager()
     var locDelegate:CLLocationManagerDelegate!
-    
+    var mapKitRestaurauntResponse = [Restaurant]()
+    var parseRestaurantResponses = [Restaurant]()
+    var mergedRestaurauntsList = [Restaurant]()
+    var searchRadius = Double()
     override func viewDidLoad() {
         super.viewDidLoad()
+
         
         checkForCurrentUser()
+        searchRadius = 5.0
+
         
         var locAuthCheck = CLLocationManager.locationServicesEnabled() // Checks to see if the app has permission for user's location.
         
@@ -124,10 +130,12 @@ class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelega
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         self.searchBar.resignFirstResponder()
+        setRadiusValue()
         var searchRequest = MKLocalSearchRequest()
             searchRequest.naturalLanguageQuery = self.searchBar.text
         var requestToQueryParse = self.searchBar.text
-        searchRequest.region = MKCoordinateRegionMake(self.mapView.userLocation.coordinate, MKCoordinateSpanMake(0.01, 0.01))
+        //searchRequest.region = MKCoordinateRegionMake(self.mapView.userLocation.coordinate, MKCoordinateSpanMake(0.01, 0.01))
+        searchRequest.region = MKCoordinateRegionMakeWithDistance(self.mapView.userLocation.coordinate, MilesToMeters(searchRadius), MilesToMeters(searchRadius))
         var localSearch = MKLocalSearch(request: searchRequest)
         var searchResponse = MKLocalSearchResponse()
         var mapError = NSError()
@@ -138,6 +146,7 @@ class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelega
         searchBar.resignFirstResponder()
     }
     
+
     func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
         if (annotation.isKindOfClass(MKUserLocation)){
             return nil
@@ -162,6 +171,9 @@ class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelega
         }
         return  nil
     }
+
+    // Add items to list when searched.
+
     
     @IBAction func favButton_Pressed(sender:AnyObject!) {
         NSLog("That's my Fav");
@@ -169,31 +181,47 @@ class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelega
     
     // Add items to map when searched.
     func searchResultsHandler(response: MKLocalSearchResponse!, error: NSError!) -> Void {
-        if let gotError = error { }
-        else {
-            self.mapView.removeAnnotations(self.mapView.annotations!)
+        buildAndSendParseQueryForLocations()
+        if let gotError = error {
+            println("Error in Search")
+        }
+        else
+        {
+        self.mapView.removeAnnotations(self.mapView.annotations!)
+        
+        //println("COUNT : \(response.mapItems.count)")
+
             var placemarks:[CLPlacemark] = []
             var items: [MKMapItem] = response.mapItems as [MKMapItem]
             var intCount = 0
             for each in items {
                 var id = "id \(intCount)"
+
                 //placemarks.append(each.placemark)
-                var myAnnotation = MKPointAnnotation()
-                myAnnotation.setCoordinate(each.placemark.coordinate)
-                myAnnotation.title = each.placemark.name
-                var annoView = MKPinAnnotationView(annotation: myAnnotation, reuseIdentifier: id)
-                self.mapView.viewForAnnotation(myAnnotation)
-                self.mapView.addAnnotation(myAnnotation)
+//                var myAnnotation = MKPointAnnotation()
+//                myAnnotation.setCoordinate(each.placemark.coordinate)
+//                myAnnotation.title = each.placemark.name
+//                var annoView = MKPinAnnotationView(annotation: myAnnotation, reuseIdentifier: id)
+//                self.mapView.viewForAnnotation(myAnnotation)
+//                self.mapView.addAnnotation(myAnnotation)
 //                buildAndSendParseQueryForLocations(each)
+
+                var restaurant = Restaurant(name: each.name!, coordinate: each.placemark.coordinate)
+                mapKitRestaurauntResponse.append(restaurant)
+                println(each)
                 intCount++
             }
         }
     }
     
-    func buildAndSendParseQueryForLocations(mapItem: MKMapItem) -> Void {
+    //ask parse for items near user
+    func buildAndSendParseQueryForLocations() -> Void {
+        parseRestaurantResponses = []
         var query = PFQuery(className: "Restaurant")
-        var geoPointCoordinate = PFGeoPoint(latitude: mapItem.placemark.coordinate.latitude, longitude: mapItem.placemark.coordinate.longitude)
-        query.whereKey("latLong", nearGeoPoint: geoPointCoordinate, withinMiles: 15.0)
+        var location = self.mapView.userLocation.coordinate
+        var geoPointCoordinate = PFGeoPoint(latitude: location.latitude, longitude: location.longitude)
+        println(geoPointCoordinate)
+        query.whereKey("latLong", nearGeoPoint: geoPointCoordinate, withinMiles: MilesToMeters(searchRadius))
         query.findObjectsInBackgroundWithBlock {
             (objects: [AnyObject]!, error: NSError!) -> Void in
             if error == nil {
@@ -203,25 +231,21 @@ class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelega
                 if let objects = objects as? [PFObject] {
                     for object in objects {
                         println(object.objectId)
-                        var myAnnotation = MKPointAnnotation()
-                        myAnnotation.title = object.valueForKey("restaurantName") as String!
                         var geoPoint = object.objectForKey("latLong") as PFGeoPoint!
-                        var annotationLoc = CLLocationCoordinate2D(latitude: geoPoint.latitude, longitude: geoPoint.longitude)
-                        myAnnotation.setCoordinate(annotationLoc)
-                        var annoView = MKPinAnnotationView(annotation: myAnnotation, reuseIdentifier: object.objectId)
-                        var right:UIButton = UIButton.buttonWithType(UIButtonType.DetailDisclosure) as UIButton
-                        annoView.rightCalloutAccessoryView = right
-                        self.mapView.viewForAnnotation(myAnnotation)
-                        self.mapView.addAnnotation(myAnnotation)
+                        var coordinateForRestaurant = CLLocationCoordinate2D(latitude: geoPoint.latitude, longitude: geoPoint.longitude)
+                        var restaurant = Restaurant(name: object.valueForKey("restaurantName") as String!, coordinate: coordinateForRestaurant, id: object.objectId)
+                        self.parseRestaurantResponses.append(restaurant)
                     }
+                    self.mergeListsToFindCommonResults()
                 }
-                //Magic stuff happens here
-            } else {
+            }
+            else {
                 // Log details of the failure
                 println("Error: \(error) \(error.userInfo!)")
             }
         }
     }
+
 
     func mapView(mapView: MKMapView!, annotationView: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if control == annotationView.leftCalloutAccessoryView {
@@ -243,6 +267,79 @@ class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelega
     }
     func signUpViewControllerDidCancelSignUp(signUpController: PFSignUpViewController!) {
         NSLog("User dismissed signup")
+
+    
+    //combine found lists of items
+    func mergeListsToFindCommonResults()
+    {
+        mergedRestaurauntsList = []
+        for pRest in parseRestaurantResponses
+        {
+            var pRestLoc = CLLocation(latitude: pRest.restaurantCoordinate!.latitude, longitude: pRest.restaurantCoordinate!.longitude)
+            for mRest in mapKitRestaurauntResponse
+            {
+                //if pRest.restaurantName! == mRest.restaurantName!{
+                var mRestLoc = CLLocation(latitude: mRest.restaurantCoordinate!.latitude, longitude: mRest.restaurantCoordinate!.longitude)
+                var dist = pRestLoc.distanceFromLocation(mRestLoc)
+                if (dist < 20.0 ){
+                    mergedRestaurauntsList.append(pRest)
+                    if let indexToRemove = find(parseRestaurantResponses, pRest) as Int!
+                    {
+                        parseRestaurantResponses.removeAtIndex(indexToRemove)
+                    }
+                }
+            }
+        }
+        plotCommonRestaurants();
+    }
+    
+    //put the items on the map
+    func plotCommonRestaurants(){
+        self.mapView.removeAnnotations(self.mapView.annotations!)
+        for restaurant in mergedRestaurauntsList
+        {
+            var myAnnotation = MKPointAnnotation()
+            myAnnotation.title = restaurant.restaurantName
+            myAnnotation.coordinate = restaurant.restaurantCoordinate!
+            var annoView = MKPinAnnotationView(annotation: myAnnotation, reuseIdentifier: restaurant.uniqueId!)
+            self.mapView.viewForAnnotation(myAnnotation)
+            self.mapView.addAnnotation(myAnnotation)
+        }
+        
+    }
+    
+    func MilesToMeters(miles : Double) -> CLLocationDistance{
+        return (1609.344  * miles) as CLLocationDistance;
+    }
+    
+    func setRadiusValue()
+    {
+        var radiusIndex = self.searchBar.selectedScopeButtonIndex
+        var buttons = self.searchBar.scopeButtonTitles as [String]
+        println(buttons)
+        if(buttons[radiusIndex] == "25 miles")
+        {
+            println("it's 25")
+            searchRadius = 25.0
+
+        }
+        else if(buttons[radiusIndex] == "10 miles")
+        {
+            println("it's 10")
+            searchRadius = 10.0
+        }
+        else if(buttons[radiusIndex] == "5 miles")
+        {
+            println("it's 5")
+            searchRadius = 5.0
+        }
+        else
+        {
+            searchRadius = 5.0
+        }
+        var region = MKCoordinateRegionMakeWithDistance(self.mapView.userLocation.coordinate, MilesToMeters(searchRadius), MilesToMeters(searchRadius))
+        self.mapView.setRegion(region, animated: true)
+
     }
 }
 
