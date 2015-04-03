@@ -98,11 +98,7 @@
 		4ED589811A27AB70009761E9 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		4EDF78481A2D8AD700448F31 /* TTLogoGimp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TTLogoGimp.png; sourceTree = "<group>"; };
 
-		7E7C8FEB1ACDBF5900F3F978 /* Restaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
-		7EBA41351ACBB23800BF114A /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "../parse-library-1/Bolts.framework"; sourceTree = "<group>"; };
-		7EBA41391ACBB25400BF114A /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ../parse-library-1/ParseUI.framework; sourceTree = "<group>"; };
-		7EBA413B1ACBB26D00BF114A /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ../parse-library-1/ParseFacebookUtils.framework; sourceTree = "<group>"; };
-		7EBA413D1ACBB34100BF114A /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ../parse-library-1/Parse.framework; sourceTree = "<group>"; };
+		7E7C8FEB1ACDBF5900F3F978 /* Restaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; }
 
 		7EBA413F1ACBB4EF00BF114A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7EBA41411ACBB58F00BF114A /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
