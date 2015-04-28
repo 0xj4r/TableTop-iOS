@@ -155,6 +155,7 @@ class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelega
             return nil
         }
         if(annotation.isKindOfClass(MKPointAnnotation)) {
+            NSLog("Added Location")
             var pinView = MKAnnotationView(annotation: annotation, reuseIdentifier: "CustomPinAnnotationView")
             pinView.canShowCallout = true
             var annotationIcon = UIImage(named: "tabletopmapicon.png")
