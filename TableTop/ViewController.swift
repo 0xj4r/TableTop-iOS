@@ -38,20 +38,24 @@ class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelega
     var parseRestaurantResponses = [Restaurant]()
     var mergedRestaurauntsList = [Restaurant]()
     var searchRadius = Double()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.mapView.delegate = self
+        self.mapView.showsUserLocation = true
+        cllManager.desiredAccuracy = kCLLocationAccuracyBest
+        cllManager.distanceFilter = 100.0 // 100 meters between updates.
+        cllManager.requestWhenInUseAuthorization()
+        cllManager.startUpdatingLocation()
 
         
         checkForCurrentUser()
         searchRadius = 5.0
 
         
-        var locAuthCheck = CLLocationManager.locationServicesEnabled() // Checks to see if the app has permission for user's location.
+        //var locAuthCheck = CLLocationManager.locationServicesEnabled() // Checks to see if the app has permission for user's location.
         
-        cllManager.desiredAccuracy = kCLLocationAccuracyBest
-        cllManager.distanceFilter = 100.0 // 100 meters between updates.
-        cllManager.requestWhenInUseAuthorization()
-        cllManager.startUpdatingLocation()
         
         var latDelta:CLLocationDegrees = 0.01
         var longDelta:CLLocationDegrees = 0.01
@@ -60,8 +64,7 @@ class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelega
         
         var tab =  self.tabBarController?.tabBar
         tab?.tintColor = UIColor.whiteColor()
-        self.mapView.delegate = self
-        self.mapView.showsUserLocation = true
+        
 
         
         sideBar = SideBar(sourceView: self.view, menuItems:["Josh Ransom", "Balance: 45.00", "Account", "Charities", "Events"])
@@ -92,8 +95,8 @@ class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelega
     
     @IBAction func searchBarButtonClicked(sender: UIBarButtonItem) {
         if self.searchBar.hidden {
+            updateUserLocation()
             self.searchBar.hidden = false
-            
             NSLog("Not Hidden")
         } else {
             self.searchBar.hidden = true
@@ -340,5 +343,12 @@ class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelega
         }
         var region = MKCoordinateRegionMakeWithDistance(self.mapView.userLocation.coordinate, MilesToMeters(searchRadius), MilesToMeters(searchRadius))
         self.mapView.setRegion(region, animated: true)
+    }
+    
+    func updateUserLocation() {
+        cllManager.startUpdatingLocation()
+        mapView.showsUserLocation = true;
+        
+        //NSLog(" USER LOCATION : \(mapView.userLocation.location.coordinate.latitude), \(mapView.userLocation.location.coordinate.longitude)")
     }
 }
