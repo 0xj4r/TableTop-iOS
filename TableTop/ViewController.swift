@@ -137,7 +137,6 @@ class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelega
         var searchRequest = MKLocalSearchRequest()
             searchRequest.naturalLanguageQuery = self.searchBar.text
         var requestToQueryParse = self.searchBar.text
-        //searchRequest.region = MKCoordinateRegionMake(self.mapView.userLocation.coordinate, MKCoordinateSpanMake(0.01, 0.01))
         searchRequest.region = MKCoordinateRegionMakeWithDistance(self.mapView.userLocation.coordinate, MilesToMeters(searchRadius), MilesToMeters(searchRadius))
         var localSearch = MKLocalSearch(request: searchRequest)
         var searchResponse = MKLocalSearchResponse()
@@ -149,29 +148,37 @@ class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelega
         searchBar.resignFirstResponder()
     }
     
+   
+    
+    
 
     func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
         if (annotation.isKindOfClass(MKUserLocation)){
             return nil
         }
         if(annotation.isKindOfClass(MKPointAnnotation)) {
-            NSLog("Added Location")
-            var pinView = MKAnnotationView(annotation: annotation, reuseIdentifier: "CustomPinAnnotationView")
+
+                
+            
+            var pinView = TTAnnotationView( annotation: annotation, reuseIdentifier: "CustomPinAnnotationView")
+            
             pinView.canShowCallout = true
             var annotationIcon = UIImage(named: "tabletopmapicon.png")
             pinView.image = annotationIcon
             pinView.calloutOffset = CGPointMake(0, 0)
             pinView.tintColor = UIColor.lightGrayColor()
-            var favoritesImage = UIImage(named: "uncheckedStar.png")
+            var favoritesImage = UIImage(named: "checkedStar.png")
             var frame = CGRect(x: 0, y: 0, width: 40, height: 40)
             var buttonView = UIView(frame: frame)
-            let favButton = UIButton.buttonWithType(UIButtonType.System) as UIButton
-            favButton.frame = frame
+            var favButton:UIButton = UIButton.buttonWithType(UIButtonType.Custom) as UIButton
             favButton.setImage(favoritesImage, forState: .Normal)
-            favButton.addTarget(self, action: "favButton_Pressed", forControlEvents: UIControlEvents.TouchUpInside)
-            buttonView.addSubview(favButton)
-            pinView.leftCalloutAccessoryView = buttonView
+            favButton.setImage(UIImage(named: "uncheckedStar.png"), forState: UIControlState.Selected)
+            buttonView.addSubview(favButton as UIView)
+            pinView.leftCalloutAccessoryView = favButton
+            pinView.rightCalloutAccessoryView = UIButton.buttonWithType(UIButtonType.ContactAdd) as UIButton
+
             return pinView
+            
         }
         return  nil
     }
@@ -179,37 +186,22 @@ class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelega
     // Add items to list when searched.
 
     
-    @IBAction func favButton_Pressed(sender:AnyObject!) {
-        NSLog("That's my Fav");
-    }
+    
     
     // Add items to map when searched.
     func searchResultsHandler(response: MKLocalSearchResponse!, error: NSError!) -> Void {
+        self.mapView.removeAnnotations(self.mapView.annotations!)
         buildAndSendParseQueryForLocations()
         if let gotError = error {
             println("Error in Search")
         }
         else
         {
-        self.mapView.removeAnnotations(self.mapView.annotations!)
-        
-        //println("COUNT : \(response.mapItems.count)")
-
             var placemarks:[CLPlacemark] = []
             var items: [MKMapItem] = response.mapItems as [MKMapItem]
             var intCount = 0
             for each in items {
                 var id = "id \(intCount)"
-
-                //placemarks.append(each.placemark)
-//                var myAnnotation = MKPointAnnotation()
-//                myAnnotation.setCoordinate(each.placemark.coordinate)
-//                myAnnotation.title = each.placemark.name
-//                var annoView = MKPinAnnotationView(annotation: myAnnotation, reuseIdentifier: id)
-//                self.mapView.viewForAnnotation(myAnnotation)
-//                self.mapView.addAnnotation(myAnnotation)
-//                buildAndSendParseQueryForLocations(each)
-
                 var restaurant = Restaurant(name: each.name!, coordinate: each.placemark.coordinate)
                 mapKitRestaurauntResponse.append(restaurant)
                 println(each)
@@ -218,13 +210,14 @@ class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelega
         }
     }
     
+    
+    
     //ask parse for items near user
     func buildAndSendParseQueryForLocations() -> Void {
         parseRestaurantResponses = []
         var query = PFQuery(className: "Restaurant")
         var location = self.mapView.userLocation.coordinate
         var geoPointCoordinate = PFGeoPoint(latitude: location.latitude, longitude: location.longitude)
-        println(geoPointCoordinate)
         query.whereKey("latLong", nearGeoPoint: geoPointCoordinate, withinMiles: MilesToMeters(searchRadius))
         query.findObjectsInBackgroundWithBlock {
             (objects: [AnyObject]!, error: NSError!) -> Void in
@@ -252,8 +245,13 @@ class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelega
 
 
     func mapView(mapView: MKMapView!, annotationView: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        NSLog("BAR")
         if control == annotationView.leftCalloutAccessoryView {
-            NSLog("LEFT CALLOUT")
+            NSLog("Left Click")
+        } else {
+            NSLog("RIGHT CLICK")
+            annotationView.rightCalloutAccessoryView.hidden = true
+            
         }
     }
     
@@ -288,10 +286,10 @@ class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelega
                 var dist = pRestLoc.distanceFromLocation(mRestLoc)
                 if (dist < 20.0 ){
                     mergedRestaurauntsList.append(pRest)
-                    if let indexToRemove = find(parseRestaurantResponses, pRest) as Int!
-                    {
-                        parseRestaurantResponses.removeAtIndex(indexToRemove)
-                    }
+//                    if let indexToRemove = find(parseRestaurantResponses, pRest) as Int!
+//                    {
+//                        parseRestaurantResponses.removeAtIndex(indexToRemove)
+//                    }
                 }
             }
         }
@@ -303,7 +301,7 @@ class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelega
         self.mapView.removeAnnotations(self.mapView.annotations!)
         for restaurant in mergedRestaurauntsList
         {
-            var myAnnotation = MKPointAnnotation()
+            var myAnnotation = TTPointAnnotation()
             myAnnotation.title = restaurant.restaurantName
             myAnnotation.coordinate = restaurant.restaurantCoordinate!
             var annoView = MKPinAnnotationView(annotation: myAnnotation, reuseIdentifier: restaurant.uniqueId!)
@@ -349,7 +347,11 @@ class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelega
     func updateUserLocation() {
         cllManager.startUpdatingLocation()
         mapView.showsUserLocation = true;
-        
-        //NSLog(" USER LOCATION : \(mapView.userLocation.location.coordinate.latitude), \(mapView.userLocation.location.coordinate.longitude)")
     }
+    
+    
+    
+
+    
+    
 }
