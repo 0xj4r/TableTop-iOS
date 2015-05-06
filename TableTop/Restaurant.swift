@@ -14,13 +14,16 @@ class Restaurant : Equatable{
     var restaurantName = String?()
     var restaurantCoordinate = CLLocationCoordinate2D?()
     var uniqueId = String?()
+    var beginDate = NSDate?()
     
-    init(name:  String, coordinate: CLLocationCoordinate2D?, id : String)
+    init(name:  String, coordinate: CLLocationCoordinate2D?, id : String, startDate: NSDate)
     {
         restaurantName = name
         restaurantCoordinate = coordinate
         uniqueId = id
+        beginDate = startDate
     }
+    
     init(name:  String, coordinate: CLLocationCoordinate2D?)
     {
         restaurantName = name
