@@ -25,6 +25,7 @@ import Social
 import FBSDKLoginKit
 import FBSDKCoreKit
 import FBSDKShareKit
+import EventKit
 
 class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelegate, MKMapViewDelegate, UISearchBarDelegate, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate {
     
@@ -44,6 +45,8 @@ class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelega
     struct accessT{
         static var currentToken = FBSDKAccessToken()
     }
+    let eventStore = EKEventStore()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if(PFUser.currentUser() == nil){
@@ -236,7 +239,8 @@ class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelega
                         println(object.objectId)
                         var geoPoint = object.objectForKey("latLong") as PFGeoPoint!
                         var coordinateForRestaurant = CLLocationCoordinate2D(latitude: geoPoint.latitude, longitude: geoPoint.longitude)
-                        var restaurant = Restaurant(name: object.valueForKey("restaurantName") as String!, coordinate: coordinateForRestaurant, id: object.objectId)
+                        var date = object.valueForKey("eventDate") as NSDate
+                        var restaurant = Restaurant(name: object.valueForKey("restaurantName") as String!, coordinate: coordinateForRestaurant, id: object.objectId, startDate: date)
                         self.parseRestaurantResponses.append(restaurant)
                     }
                     self.mergeListsToFindCommonResults()
@@ -285,6 +289,7 @@ class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelega
             self.mapView.viewForAnnotation(myAnnotation)
             self.mapView.addAnnotation(myAnnotation)
         }
+        addEventToCal(mergedRestaurauntsList.first!)
         
     }
     
@@ -321,7 +326,7 @@ class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelega
         self.mapView.setRegion(region, animated: true)
     }
     
-    func AttemptFBPost(/*postString: String*/)
+    func attemptFBPost(/*postString: String*/)
     {
        //var isEqualTo = (FBSDKAccessToken.currentAccessToken().tokenString == Globals.global.currentToken.tokenString)
         //if(Globals.global.currentToken.tokenString == "")
@@ -336,6 +341,59 @@ class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelega
             content.contentDescription = "Introducing TableTop, an all new way to give charitably, while you do what you alread love doing - Eating at Restaurants"
             FBSDKShareDialog.showFromViewController(self, withContent: content, delegate: nil)
         //}
+    }
+    
+    func addEventToCal(selectedRestaurant: Restaurant)
+    {
+        switch EKEventStore.authorizationStatusForEntityType(EKEntityTypeEvent){
+        case .Authorized:
+            insertEvent(self.eventStore,  event: selectedRestaurant)
+        case .Denied:
+            println("Access Denied")
+        case .NotDetermined:
+            eventStore.requestAccessToEntityType(EKEntityTypeEvent, completion:
+                {[weak self] (granted: Bool, error: NSError!) -> Void in
+                    if granted {
+                        self!.insertEvent(self!.eventStore, event: selectedRestaurant)
+                    } else {
+                        println("Access denied")
+                    }
+            })
+        default:
+            println("Defaults on switch-case")
+        
+        }
+    }
+    
+    func insertEvent(store: EKEventStore, event: Restaurant)
+    {
+        let calendars = store.calendarsForEntityType(EKEntityTypeEvent) as [EKCalendar]
+        
+        for calendar in calendars {
+            
+            //if calendar.title == "ioscreator"
+            //{
+                let startDate = event.beginDate
+                let endDate = startDate?.dateByAddingTimeInterval(2*60*60)
+                var calEvent = EKEvent(eventStore: store)
+                calEvent.calendar = calendar
+                calEvent.title = event.restaurantName!
+                calEvent.startDate = startDate
+                calEvent.endDate = endDate
+                
+                var error: NSError?
+                let result = store.saveEvent(calEvent, span: EKSpanThisEvent, error: &error)
+                
+                if result == false{
+                    if let theError = error{
+                        println("an error occured \(theError)")
+                    }
+                }
+                
+           // }
+        }
+        
+        
     }
     
 }

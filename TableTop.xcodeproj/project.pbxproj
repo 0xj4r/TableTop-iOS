@@ -45,6 +45,7 @@
 		7ED705541AF9F01000A92A54 /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ED705531AF9F01000A92A54 /* ParseFacebookUtilsV4.framework */; };
 		7ED7055E1AFA622100A92A54 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED7055D1AFA622100A92A54 /* Globals.swift */; };
 		7ED705601AFA6EF500A92A54 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ED7055F1AFA6EF500A92A54 /* FBSDKShareKit.framework */; };
+		7ED705621AFA8A2600A92A54 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ED705611AFA8A2600A92A54 /* EventKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +103,7 @@
 		7ED705531AF9F01000A92A54 /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
 		7ED7055D1AFA622100A92A54 /* Globals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
 		7ED7055F1AFA6EF500A92A54 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		7ED705611AFA8A2600A92A54 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = ../../../../Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.1.sdk/System/Library/Frameworks/EventKit.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7ED705621AFA8A2600A92A54 /* EventKit.framework in Frameworks */,
 				7EBA41421ACBB58F00BF114A /* libsqlite3.0.dylib in Frameworks */,
 				4ED589821A27AB70009761E9 /* AudioToolbox.framework in Frameworks */,
 				7ED705541AF9F01000A92A54 /* ParseFacebookUtilsV4.framework in Frameworks */,
@@ -216,6 +219,7 @@
 		4EC0CCE01A279A950016727D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7ED705611AFA8A2600A92A54 /* EventKit.framework */,
 				7ED7055F1AFA6EF500A92A54 /* FBSDKShareKit.framework */,
 				7ED7054D1AF9EFC600A92A54 /* ParseFacebookUtils.framework */,
 				7ED705531AF9F01000A92A54 /* ParseFacebookUtilsV4.framework */,
