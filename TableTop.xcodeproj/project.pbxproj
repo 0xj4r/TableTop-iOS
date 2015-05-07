@@ -7,18 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E09683A1AF007AF00AF3EAA /* tabletopmapicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E0968391AF007AF00AF3EAA /* tabletopmapicon.png */; };
+		4E0968421AF017F800AF3EAA /* uncheckedStar.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E0968411AF017F800AF3EAA /* uncheckedStar.png */; };
+		4E0968441AF018D100AF3EAA /* checkedStar.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E0968431AF018D100AF3EAA /* checkedStar.png */; };
+		4E0968461AF01ACA00AF3EAA /* TTPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0968451AF01ACA00AF3EAA /* TTPointAnnotation.swift */; };
+		4E0968481AF01E0800AF3EAA /* TTAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0968471AF01E0800AF3EAA /* TTAnnotationView.swift */; };
+		4E09684A1AF01FA700AF3EAA /* TTAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0968491AF01FA700AF3EAA /* TTAnnotation.swift */; };
 		4E112F2C19BCA07B00BFC322 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E112F2B19BCA07B00BFC322 /* AppDelegate.swift */; };
 		4E112F2E19BCA07B00BFC322 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E112F2D19BCA07B00BFC322 /* ViewController.swift */; };
 		4E112F3119BCA07B00BFC322 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E112F2F19BCA07B00BFC322 /* Main.storyboard */; };
 		4E112F3319BCA07B00BFC322 /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E112F3219BCA07B00BFC322 /* images.xcassets */; };
 		4E112F3F19BCA07B00BFC322 /* TableTopTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E112F3E19BCA07B00BFC322 /* TableTopTests.swift */; };
 		4E112F4B19BCA4DE00BFC322 /* SideBarTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E112F4A19BCA4DE00BFC322 /* SideBarTableViewController.swift */; };
+		4E16FC9F1AFA8FC700D9FFDD /* TTTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E16FC9E1AFA8FC700D9FFDD /* TTTabBarController.swift */; };
 		4E39DB0F1A296457001AAFD7 /* TableTopSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E39DB0E1A296457001AAFD7 /* TableTopSignUpViewController.swift */; };
 		4E4EFE8E19ECD046003699DC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E4EFE8D19ECD046003699DC /* MapKit.framework */; };
 		4E4EFE9019ECD04F003699DC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E4EFE8F19ECD04F003699DC /* CoreLocation.framework */; };
 		4E6104AB19FF6ABD0099A820 /* TableTopLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E6104AA19FF6ABD0099A820 /* TableTopLogo.png */; };
 		4E6104AD19FF71C80099A820 /* tabletopapplogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E6104AC19FF71C80099A820 /* tabletopapplogo.png */; };
 		4E6104AF19FF7CD50099A820 /* tabletopapplogobackupicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E6104AE19FF7CD50099A820 /* tabletopapplogobackupicon.png */; };
+		4E640C941AF8227200439355 /* RestaurantTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E640C931AF8227200439355 /* RestaurantTableController.swift */; };
+		4E640C961AF8482600439355 /* FavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E640C951AF8482600439355 /* FavoritesTableViewController.swift */; };
 		4E74E16A19D089B90046B5A9 /* SideBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E74E16919D089B90046B5A9 /* SideBar.swift */; };
 		4EA3F70D1A29560C002AC3E1 /* TableTopLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA3F70C1A29560C002AC3E1 /* TableTopLoginView.swift */; };
 		4ED589681A27A8B6009761E9 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED589671A27A8B6009761E9 /* Accounts.framework */; };
@@ -33,8 +42,10 @@
 		4ED589801A27AB67009761E9 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED5897F1A27AB67009761E9 /* CFNetwork.framework */; };
 		4ED589821A27AB70009761E9 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED589811A27AB70009761E9 /* AudioToolbox.framework */; };
 		4EDF78491A2D8AD700448F31 /* TTLogoGimp.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EDF78481A2D8AD700448F31 /* TTLogoGimp.png */; };
-		7E66B2991AF9B90500146186 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E66B2981AF9B90500146186 /* Restaurant.swift */; };
-		7E7C8FEC1ACDBF5A00F3F978 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		4EED2E6D1ACE586100B06118 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EBA41351ACBB23800BF114A /* Bolts.framework */; };
+		4EED2E6E1ACE586E00B06118 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EBA413D1ACBB34100BF114A /* Parse.framework */; };
+		4EED2E6F1ACE587B00B06118 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EBA413B1ACBB26D00BF114A /* ParseFacebookUtils.framework */; };
+		4EED2E701ACE588A00B06118 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EBA41391ACBB25400BF114A /* ParseUI.framework */; };
 		7EBA41421ACBB58F00BF114A /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EBA41411ACBB58F00BF114A /* libsqlite3.0.dylib */; };
 		7ED705481AF9D1D900A92A54 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ED705471AF9D1D900A92A54 /* FBSDKCoreKit.framework */; };
 		7ED7054A1AF9DDB800A92A54 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ED705491AF9DDB800A92A54 /* FBSDKLoginKit.framework */; };
@@ -46,6 +57,7 @@
 		7ED7055E1AFA622100A92A54 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED7055D1AFA622100A92A54 /* Globals.swift */; };
 		7ED705601AFA6EF500A92A54 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ED7055F1AFA6EF500A92A54 /* FBSDKShareKit.framework */; };
 		7ED705621AFA8A2600A92A54 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ED705611AFA8A2600A92A54 /* EventKit.framework */; };
+		7ED705641AFB263400A92A54 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED705631AFB263400A92A54 /* Restaurant.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +71,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4E0968391AF007AF00AF3EAA /* tabletopmapicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabletopmapicon.png; sourceTree = "<group>"; };
+		4E0968411AF017F800AF3EAA /* uncheckedStar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = uncheckedStar.png; sourceTree = "<group>"; };
+		4E0968431AF018D100AF3EAA /* checkedStar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkedStar.png; sourceTree = "<group>"; };
+		4E0968451AF01ACA00AF3EAA /* TTPointAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTPointAnnotation.swift; sourceTree = "<group>"; };
+		4E0968471AF01E0800AF3EAA /* TTAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTAnnotationView.swift; sourceTree = "<group>"; };
+		4E0968491AF01FA700AF3EAA /* TTAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTAnnotation.swift; sourceTree = "<group>"; };
 		4E112F2619BCA07B00BFC322 /* TableTop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TableTop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E112F2B19BCA07B00BFC322 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4E112F2D19BCA07B00BFC322 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -68,12 +86,15 @@
 		4E112F3D19BCA07B00BFC322 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E112F3E19BCA07B00BFC322 /* TableTopTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableTopTests.swift; sourceTree = "<group>"; };
 		4E112F4A19BCA4DE00BFC322 /* SideBarTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SideBarTableViewController.swift; path = ../SideBarTableViewController.swift; sourceTree = "<group>"; };
+		4E16FC9E1AFA8FC700D9FFDD /* TTTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTTabBarController.swift; sourceTree = "<group>"; };
 		4E39DB0E1A296457001AAFD7 /* TableTopSignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableTopSignUpViewController.swift; sourceTree = "<group>"; };
 		4E4EFE8D19ECD046003699DC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = ../../../../Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.1.sdk/System/Library/Frameworks/MapKit.framework; sourceTree = "<group>"; };
 		4E4EFE8F19ECD04F003699DC /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = ../../../../Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.1.sdk/System/Library/Frameworks/CoreLocation.framework; sourceTree = "<group>"; };
 		4E6104AA19FF6ABD0099A820 /* TableTopLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TableTopLogo.png; sourceTree = "<group>"; };
 		4E6104AC19FF71C80099A820 /* tabletopapplogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabletopapplogo.png; sourceTree = "<group>"; };
 		4E6104AE19FF7CD50099A820 /* tabletopapplogobackupicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabletopapplogobackupicon.png; sourceTree = "<group>"; };
+		4E640C931AF8227200439355 /* RestaurantTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantTableController.swift; sourceTree = "<group>"; };
+		4E640C951AF8482600439355 /* FavoritesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewController.swift; sourceTree = "<group>"; };
 		4E74E16919D089B90046B5A9 /* SideBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SideBar.swift; path = ../SideBar.swift; sourceTree = "<group>"; };
 		4EA3F7091A29520D002AC3E1 /* TableTop-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TableTop-Bridging-Header.h"; sourceTree = "<group>"; };
 		4EA3F70C1A29560C002AC3E1 /* TableTopLoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableTopLoginView.swift; sourceTree = "<group>"; };
@@ -89,9 +110,12 @@
 		4ED5897F1A27AB67009761E9 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = ../../../../Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.1.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = "<group>"; };
 		4ED589811A27AB70009761E9 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = ../../../../Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.1.sdk/System/Library/Frameworks/AudioToolbox.framework; sourceTree = "<group>"; };
 		4EDF78481A2D8AD700448F31 /* TTLogoGimp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TTLogoGimp.png; sourceTree = "<group>"; };
-		7E66B2981AF9B90500146186 /* Restaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		7E7C8FED1ACE11A300F3F978 /* asu.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = asu.gpx; sourceTree = "<group>"; };
 		7E7C8FEE1ACE11D200F3F978 /* home.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = home.gpx; sourceTree = "<group>"; };
+		7EBA41351ACBB23800BF114A /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "../parse-library-1/Bolts.framework"; sourceTree = "<group>"; };
+		7EBA41391ACBB25400BF114A /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseUI.framework; path = "../parse-library-1/ParseUI.framework"; sourceTree = "<group>"; };
+		7EBA413B1ACBB26D00BF114A /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseFacebookUtils.framework; path = "../parse-library-1/ParseFacebookUtils.framework"; sourceTree = "<group>"; };
+		7EBA413D1ACBB34100BF114A /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = "../parse-library-1/Parse.framework"; sourceTree = "<group>"; };
 		7EBA413F1ACBB4EF00BF114A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7EBA41411ACBB58F00BF114A /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = ../../../../Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.1.sdk/usr/lib/libsqlite3.0.dylib; sourceTree = "<group>"; };
 		7ED705471AF9D1D900A92A54 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
@@ -104,6 +128,7 @@
 		7ED7055D1AFA622100A92A54 /* Globals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
 		7ED7055F1AFA6EF500A92A54 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		7ED705611AFA8A2600A92A54 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = ../../../../Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.1.sdk/System/Library/Frameworks/EventKit.framework; sourceTree = "<group>"; };
+		7ED705631AFB263400A92A54 /* Restaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +137,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				7ED705621AFA8A2600A92A54 /* EventKit.framework in Frameworks */,
+				4EED2E701ACE588A00B06118 /* ParseUI.framework in Frameworks */,
+				4EED2E6F1ACE587B00B06118 /* ParseFacebookUtils.framework in Frameworks */,
+				4EED2E6E1ACE586E00B06118 /* Parse.framework in Frameworks */,
+				4EED2E6D1ACE586100B06118 /* Bolts.framework in Frameworks */,
 				7EBA41421ACBB58F00BF114A /* libsqlite3.0.dylib in Frameworks */,
 				4ED589821A27AB70009761E9 /* AudioToolbox.framework in Frameworks */,
 				7ED705541AF9F01000A92A54 /* ParseFacebookUtilsV4.framework in Frameworks */,
@@ -171,8 +200,9 @@
 		4E112F2819BCA07B00BFC322 /* TableTop */ = {
 			isa = PBXGroup;
 			children = (
-				7E66B2981AF9B90500146186 /* Restaurant.swift */,
-				7EBA413F1ACBB4EF00BF114A /* Info.plist */,
+				4E16FC9E1AFA8FC700D9FFDD /* TTTabBarController.swift */,
+				4E640C951AF8482600439355 /* FavoritesTableViewController.swift */,
+				4E640C931AF8227200439355 /* RestaurantTableController.swift */,
 				4E112F2B19BCA07B00BFC322 /* AppDelegate.swift */,
 				4E112F4A19BCA4DE00BFC322 /* SideBarTableViewController.swift */,
 				4EA3F70C1A29560C002AC3E1 /* TableTopLoginView.swift */,
@@ -180,10 +210,15 @@
 				4E112F2D19BCA07B00BFC322 /* ViewController.swift */,
 				7ED7055D1AFA622100A92A54 /* Globals.swift */,
 				4E112F2F19BCA07B00BFC322 /* Main.storyboard */,
+				4E0968471AF01E0800AF3EAA /* TTAnnotationView.swift */,
+				4E0968451AF01ACA00AF3EAA /* TTPointAnnotation.swift */,
+				4E0968491AF01FA700AF3EAA /* TTAnnotation.swift */,
+				7ED705631AFB263400A92A54 /* Restaurant.swift */,
 				4E74E16919D089B90046B5A9 /* SideBar.swift */,
+				7EBA413F1ACBB4EF00BF114A /* Info.plist */,
 				4E112F3219BCA07B00BFC322 /* images.xcassets */,
-				4E112F2919BCA07B00BFC322 /* Supporting Files */,
 				4EA3F7091A29520D002AC3E1 /* TableTop-Bridging-Header.h */,
+				4E112F2919BCA07B00BFC322 /* Supporting Files */,
 			);
 			path = TableTop;
 			sourceTree = "<group>";
@@ -193,6 +228,9 @@
 			children = (
 				4EDF78481A2D8AD700448F31 /* TTLogoGimp.png */,
 				4E6104AC19FF71C80099A820 /* tabletopapplogo.png */,
+				4E0968391AF007AF00AF3EAA /* tabletopmapicon.png */,
+				4E0968411AF017F800AF3EAA /* uncheckedStar.png */,
+				4E0968431AF018D100AF3EAA /* checkedStar.png */,
 				4E6104AE19FF7CD50099A820 /* tabletopapplogobackupicon.png */,
 				4E6104AA19FF6ABD0099A820 /* TableTopLogo.png */,
 			);
@@ -328,7 +366,10 @@
 			files = (
 				4E6104AB19FF6ABD0099A820 /* TableTopLogo.png in Resources */,
 				4E112F3119BCA07B00BFC322 /* Main.storyboard in Resources */,
+				4E0968421AF017F800AF3EAA /* uncheckedStar.png in Resources */,
 				4E112F3319BCA07B00BFC322 /* images.xcassets in Resources */,
+				4E09683A1AF007AF00AF3EAA /* tabletopmapicon.png in Resources */,
+				4E0968441AF018D100AF3EAA /* checkedStar.png in Resources */,
 				4EDF78491A2D8AD700448F31 /* TTLogoGimp.png in Resources */,
 				4E6104AF19FF7CD50099A820 /* tabletopapplogobackupicon.png in Resources */,
 				4E6104AD19FF71C80099A820 /* tabletopapplogo.png in Resources */,
@@ -351,13 +392,21 @@
 			files = (
 				4E112F2E19BCA07B00BFC322 /* ViewController.swift in Sources */,
 				4E112F4B19BCA4DE00BFC322 /* SideBarTableViewController.swift in Sources */,
+				4E0968481AF01E0800AF3EAA /* TTAnnotationView.swift in Sources */,
+				4E640C961AF8482600439355 /* FavoritesTableViewController.swift in Sources */,
+				4E640C941AF8227200439355 /* RestaurantTableController.swift in Sources */,
 				4EA3F70D1A29560C002AC3E1 /* TableTopLoginView.swift in Sources */,
-				7E7C8FEC1ACDBF5A00F3F978 /* (null) in Sources */,
-				7E66B2991AF9B90500146186 /* Restaurant.swift in Sources */,
 				4E74E16A19D089B90046B5A9 /* SideBar.swift in Sources */,
 				4E112F2C19BCA07B00BFC322 /* AppDelegate.swift in Sources */,
 				4E39DB0F1A296457001AAFD7 /* TableTopSignUpViewController.swift in Sources */,
 				7ED7055E1AFA622100A92A54 /* Globals.swift in Sources */,
+				4E09684A1AF01FA700AF3EAA /* TTAnnotation.swift in Sources */,
+				4E74E16A19D089B90046B5A9 /* SideBar.swift in Sources */,
+				7ED705641AFB263400A92A54 /* Restaurant.swift in Sources */,
+				4E112F2C19BCA07B00BFC322 /* AppDelegate.swift in Sources */,
+				4E39DB0F1A296457001AAFD7 /* TableTopSignUpViewController.swift in Sources */,
+				4E0968461AF01ACA00AF3EAA /* TTPointAnnotation.swift in Sources */,
+				4E16FC9F1AFA8FC700D9FFDD /* TTTabBarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -478,6 +527,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"/Users/TimothyFerguson/Desktop/parse-library-1-2",
+					"/Volumes/HDD/Users/joshRansom/workspaces/iOS/parse-library-1",
 				);
 				INFOPLIST_FILE = TableTop/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -497,6 +547,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"/Users/TimothyFerguson/Desktop/parse-library-1-2",
+					"/Volumes/HDD/Users/joshRansom/workspaces/iOS/parse-library-1",
 				);
 				INFOPLIST_FILE = TableTop/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

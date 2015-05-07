@@ -34,6 +34,7 @@ class SideBar: NSObject, SideBarTableViewControllerDelegate {
         super.init()
         originView = sourceView
         sideBarTableViewController.tableData = menuItems
+        NSLog(" MENU ITEMS : \(menuItems) " )
         
         setupSideBar()
         
@@ -54,21 +55,19 @@ class SideBar: NSObject, SideBarTableViewControllerDelegate {
         sideBarContainerView.frame = CGRectMake(-barWidth - 1, originView.frame.origin.y, barWidth, originView.frame.size.height)
         sideBarContainerView.backgroundColor = UIColor.clearColor()
         sideBarContainerView.clipsToBounds = false
-        originView.addSubview(sideBarContainerView)
         
         let blurView:UIVisualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffectStyle.Light))
         blurView.frame = sideBarContainerView.bounds
         sideBarContainerView.addSubview(blurView)
+        originView.addSubview(sideBarContainerView)
+
         
         sideBarTableViewController.delegate = self
         sideBarTableViewController.tableView.frame = sideBarContainerView.bounds
         sideBarTableViewController.tableView.clipsToBounds = false
-        
-        
         sideBarTableViewController.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         sideBarTableViewController.tableView.backgroundColor = UIColor.clearColor()
         sideBarTableViewController.tableView.contentInset = UIEdgeInsetsMake(sideBarTableViewTopInset, 0, 0, 0)
-        
         sideBarTableViewController.tableView.reloadData()
         
         sideBarContainerView.addSubview(sideBarTableViewController.tableView)
@@ -81,8 +80,6 @@ class SideBar: NSObject, SideBarTableViewControllerDelegate {
         if recognizer.direction == UISwipeGestureRecognizerDirection.Left {
             showSideBar(false)
             delegate?.sideBarWillClose?()
-            
-            
         } else {
             showSideBar(true)
             delegate?.sideBarWillOpen?()
@@ -93,7 +90,9 @@ class SideBar: NSObject, SideBarTableViewControllerDelegate {
     func showSideBar(shouldOpen:Bool) {
         animator.removeAllBehaviors()
         isSideBarOpen = shouldOpen
-        
+        if (shouldOpen) {
+            self.sideBarTableViewController.tableView.reloadData()
+        }
         let gravityX:CGFloat = (shouldOpen) ? 0.5 : -0.5
         let magnitude:CGFloat = (shouldOpen) ? 20 : -20
         let boundaryX:CGFloat = (shouldOpen) ? barWidth : -barWidth - 1
@@ -119,6 +118,6 @@ class SideBar: NSObject, SideBarTableViewControllerDelegate {
     
     func sideBarControlDidSelectRow(indexPath: NSIndexPath) {
         delegate?.sideBarDidSelectButtonAtIndex(indexPath.row)
+        NSLog(" CLICKED \(indexPath.row)")
     }
-   
 }

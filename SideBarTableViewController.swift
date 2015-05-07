@@ -21,17 +21,19 @@ class SideBarTableViewController: UITableViewController {
         return 1
     }
 
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//
-//        // Uncomment the following line to preserve selection between presentations
-//        // self.clearsSelectionOnViewWillAppear = false
-//
-//        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-//        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-//    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        NSLog("Loaded Table")
+
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
 
     override func tableView(tableView:(UITableView!), numberOfRowsInSection section: Int) -> Int {
+        NSLog("NUM OF ROWS : \(tableData.count))")
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
         return tableData.count
@@ -42,16 +44,13 @@ class SideBarTableViewController: UITableViewController {
         var cell:UITableViewCell? = tableView.dequeueReusableCellWithIdentifier("Cell") as? UITableViewCell
         if cell == nil {
             cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "Cell")
+            cell?.textLabel?.textColor = UIColor.blackColor()
+            cell?.textLabel?.text = tableData[indexPath.row]
             cell!.backgroundColor = UIColor.clearColor()
-//            cell!.textLabel.textColor = UIColor.darkTextColor()
-            
             let selectedView:UIView = UIView(frame: CGRect(x:0, y: 0, width: cell!.frame.size.width, height: cell!.frame.size.height))
             selectedView.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.3)
-            
             cell!.selectedBackgroundView  = selectedView
-            
         }
-//        cell!.textLabel.text = tableData[indexPath.row]
                return cell!
     }
 
@@ -62,7 +61,12 @@ class SideBarTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+        NSLog("Selected Row")
         delegate?.sideBarControlDidSelectRow(indexPath)
+    }
+    
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Restaurants"
     }
     
     
