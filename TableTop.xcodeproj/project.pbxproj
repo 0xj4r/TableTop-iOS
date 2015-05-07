@@ -19,6 +19,7 @@
 		4E112F3319BCA07B00BFC322 /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E112F3219BCA07B00BFC322 /* images.xcassets */; };
 		4E112F3F19BCA07B00BFC322 /* TableTopTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E112F3E19BCA07B00BFC322 /* TableTopTests.swift */; };
 		4E112F4B19BCA4DE00BFC322 /* SideBarTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E112F4A19BCA4DE00BFC322 /* SideBarTableViewController.swift */; };
+		4E16FC9F1AFA8FC700D9FFDD /* TTTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E16FC9E1AFA8FC700D9FFDD /* TTTabBarController.swift */; };
 		4E1E8B671ACD97D400059752 /* home.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4E1E8B661ACD97D400059752 /* home.gpx */; };
 		4E1E8B691ACD9BEE00059752 /* asu.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4E1E8B681ACD9BEE00059752 /* asu.gpx */; };
 		4E39DB0F1A296457001AAFD7 /* TableTopSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E39DB0E1A296457001AAFD7 /* TableTopSignUpViewController.swift */; };
@@ -27,6 +28,8 @@
 		4E6104AB19FF6ABD0099A820 /* TableTopLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E6104AA19FF6ABD0099A820 /* TableTopLogo.png */; };
 		4E6104AD19FF71C80099A820 /* tabletopapplogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E6104AC19FF71C80099A820 /* tabletopapplogo.png */; };
 		4E6104AF19FF7CD50099A820 /* tabletopapplogobackupicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E6104AE19FF7CD50099A820 /* tabletopapplogobackupicon.png */; };
+		4E640C941AF8227200439355 /* RestaurantTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E640C931AF8227200439355 /* RestaurantTableController.swift */; };
+		4E640C961AF8482600439355 /* FavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E640C951AF8482600439355 /* FavoritesTableViewController.swift */; };
 		4E74E16A19D089B90046B5A9 /* SideBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E74E16919D089B90046B5A9 /* SideBar.swift */; };
 		4EA3F70D1A29560C002AC3E1 /* TableTopLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA3F70C1A29560C002AC3E1 /* TableTopLoginView.swift */; };
 		4ED589681A27A8B6009761E9 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED589671A27A8B6009761E9 /* Accounts.framework */; };
@@ -75,6 +78,7 @@
 		4E112F3D19BCA07B00BFC322 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E112F3E19BCA07B00BFC322 /* TableTopTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableTopTests.swift; sourceTree = "<group>"; };
 		4E112F4A19BCA4DE00BFC322 /* SideBarTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SideBarTableViewController.swift; path = ../SideBarTableViewController.swift; sourceTree = "<group>"; };
+		4E16FC9E1AFA8FC700D9FFDD /* TTTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTTabBarController.swift; sourceTree = "<group>"; };
 		4E1E8B661ACD97D400059752 /* home.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = home.gpx; sourceTree = "<group>"; };
 		4E1E8B681ACD9BEE00059752 /* asu.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = asu.gpx; sourceTree = "<group>"; };
 		4E39DB0E1A296457001AAFD7 /* TableTopSignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableTopSignUpViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +87,8 @@
 		4E6104AA19FF6ABD0099A820 /* TableTopLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TableTopLogo.png; sourceTree = "<group>"; };
 		4E6104AC19FF71C80099A820 /* tabletopapplogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabletopapplogo.png; sourceTree = "<group>"; };
 		4E6104AE19FF7CD50099A820 /* tabletopapplogobackupicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabletopapplogobackupicon.png; sourceTree = "<group>"; };
+		4E640C931AF8227200439355 /* RestaurantTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantTableController.swift; sourceTree = "<group>"; };
+		4E640C951AF8482600439355 /* FavoritesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewController.swift; sourceTree = "<group>"; };
 		4E74E16919D089B90046B5A9 /* SideBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SideBar.swift; path = ../SideBar.swift; sourceTree = "<group>"; };
 		4EA3F7091A29520D002AC3E1 /* TableTop-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TableTop-Bridging-Header.h"; sourceTree = "<group>"; };
 		4EA3F70C1A29560C002AC3E1 /* TableTopLoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableTopLoginView.swift; sourceTree = "<group>"; };
@@ -167,21 +173,24 @@
 		4E112F2819BCA07B00BFC322 /* TableTop */ = {
 			isa = PBXGroup;
 			children = (
-				7EBA413F1ACBB4EF00BF114A /* Info.plist */,
+				4E112F2F19BCA07B00BFC322 /* Main.storyboard */,
+				4E16FC9E1AFA8FC700D9FFDD /* TTTabBarController.swift */,
+				4E112F2D19BCA07B00BFC322 /* ViewController.swift */,
+				4E640C951AF8482600439355 /* FavoritesTableViewController.swift */,
+				4E640C931AF8227200439355 /* RestaurantTableController.swift */,
 				4E112F2B19BCA07B00BFC322 /* AppDelegate.swift */,
 				4E112F4A19BCA4DE00BFC322 /* SideBarTableViewController.swift */,
 				4EA3F70C1A29560C002AC3E1 /* TableTopLoginView.swift */,
 				4E39DB0E1A296457001AAFD7 /* TableTopSignUpViewController.swift */,
-				4E112F2D19BCA07B00BFC322 /* ViewController.swift */,
 				4E0968471AF01E0800AF3EAA /* TTAnnotationView.swift */,
 				4E0968451AF01ACA00AF3EAA /* TTPointAnnotation.swift */,
 				4E0968491AF01FA700AF3EAA /* TTAnnotation.swift */,
 				7E7C8FEB1ACDBF5900F3F978 /* Restaurant.swift */,
 				4E74E16919D089B90046B5A9 /* SideBar.swift */,
-				4E112F2F19BCA07B00BFC322 /* Main.storyboard */,
+				7EBA413F1ACBB4EF00BF114A /* Info.plist */,
 				4E112F3219BCA07B00BFC322 /* images.xcassets */,
-				4E112F2919BCA07B00BFC322 /* Supporting Files */,
 				4EA3F7091A29520D002AC3E1 /* TableTop-Bridging-Header.h */,
+				4E112F2919BCA07B00BFC322 /* Supporting Files */,
 			);
 			path = TableTop;
 			sourceTree = "<group>";
@@ -353,6 +362,8 @@
 				4E112F2E19BCA07B00BFC322 /* ViewController.swift in Sources */,
 				4E112F4B19BCA4DE00BFC322 /* SideBarTableViewController.swift in Sources */,
 				4E0968481AF01E0800AF3EAA /* TTAnnotationView.swift in Sources */,
+				4E640C961AF8482600439355 /* FavoritesTableViewController.swift in Sources */,
+				4E640C941AF8227200439355 /* RestaurantTableController.swift in Sources */,
 				4EA3F70D1A29560C002AC3E1 /* TableTopLoginView.swift in Sources */,
 				4E09684A1AF01FA700AF3EAA /* TTAnnotation.swift in Sources */,
 				7E7C8FEC1ACDBF5A00F3F978 /* Restaurant.swift in Sources */,
@@ -360,6 +371,7 @@
 				4E112F2C19BCA07B00BFC322 /* AppDelegate.swift in Sources */,
 				4E39DB0F1A296457001AAFD7 /* TableTopSignUpViewController.swift in Sources */,
 				4E0968461AF01ACA00AF3EAA /* TTPointAnnotation.swift in Sources */,
+				4E16FC9F1AFA8FC700D9FFDD /* TTTabBarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

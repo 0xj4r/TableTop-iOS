@@ -24,13 +24,14 @@ import MobileCoreServices
 
 
 
-class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelegate, MKMapViewDelegate, UISearchBarDelegate, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate {
+class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelegate, MKMapViewDelegate, UISearchBarDelegate, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate, RestaurantTableControllerDelegate {
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var navBar: UINavigationItem!
-   // @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var mapView: MKMapView!
-
+    
+    
+    
     var sideBar:SideBar = SideBar()
     var cllManager = CLLocationManager()
     var locDelegate:CLLocationManagerDelegate!
@@ -38,6 +39,7 @@ class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelega
     var parseRestaurantResponses = [Restaurant]()
     var mergedRestaurauntsList = [Restaurant]()
     var searchRadius = Double()
+    var barMenu = ["Josh Ransom", "Balance: 45.00", "Account", "Charities", "Events"]
     
     
     override func viewDidLoad() {
@@ -48,14 +50,10 @@ class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelega
         cllManager.distanceFilter = 100.0 // 100 meters between updates.
         cllManager.requestWhenInUseAuthorization()
         cllManager.startUpdatingLocation()
-
+        sideBar.sideBarTableViewController.tableData = barMenu
         
         checkForCurrentUser()
         searchRadius = 5.0
-
-        
-        //var locAuthCheck = CLLocationManager.locationServicesEnabled() // Checks to see if the app has permission for user's location.
-        
         
         var latDelta:CLLocationDegrees = 0.01
         var longDelta:CLLocationDegrees = 0.01
@@ -67,10 +65,12 @@ class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelega
         
 
         
-        sideBar = SideBar(sourceView: self.view, menuItems:["Josh Ransom", "Balance: 45.00", "Account", "Charities", "Events"])
+        sideBar = SideBar(sourceView: self.view, menuItems: barMenu)
         sideBar.delegate = self
         // Do any additional setup after loading the view, typically from a nib.
         self.searchBar.delegate = self
+
+
     }
 
         func logInViewController(logInController: PFLogInViewController!, shouldBeginLogInWithUsername username: String!, password: String!) -> Bool {
@@ -89,6 +89,7 @@ class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelega
     
     func sideBarDidSelectButtonAtIndex(index: Int) {
         if index == 0 {
+            NSLog("INDEX 0")
         } else if index == 1{
                   }
     }
@@ -96,6 +97,7 @@ class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelega
     @IBAction func searchBarButtonClicked(sender: UIBarButtonItem) {
         if self.searchBar.hidden {
             updateUserLocation()
+            self.searchBar.becomeFirstResponder() // Automatically prepare to edit text
             self.searchBar.hidden = false
             NSLog("Not Hidden")
         } else {
@@ -133,7 +135,12 @@ class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelega
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         self.searchBar.resignFirstResponder()
+        mergedRestaurauntsList.removeAll(keepCapacity: false)
         setRadiusValue()
+        
+        sideBar.sideBarTableViewController.tableView.reloadData()
+        
+        
         var searchRequest = MKLocalSearchRequest()
             searchRequest.naturalLanguageQuery = self.searchBar.text
         var requestToQueryParse = self.searchBar.text
@@ -157,12 +164,17 @@ class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelega
             return nil
         }
         if(annotation.isKindOfClass(MKPointAnnotation)) {
-
-                
-            
             var pinView = TTAnnotationView( annotation: annotation, reuseIdentifier: "CustomPinAnnotationView")
-            
+            var thisRest:Restaurant?
+            for each:Restaurant in mergedRestaurauntsList {
+                if each.restaurantCoordinate?.latitude == annotation.coordinate.latitude && each.restaurantCoordinate?.longitude == annotation.coordinate.longitude {
+                    NSLog("GOT IT")
+                        NSLog("\(each.restaurantName)")
+                    thisRest = each
+                }
+            }
             pinView.canShowCallout = true
+            pinView.restaurant = thisRest
             var annotationIcon = UIImage(named: "tabletopmapicon.png")
             pinView.image = annotationIcon
             pinView.calloutOffset = CGPointMake(0, 0)
@@ -176,21 +188,15 @@ class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelega
             buttonView.addSubview(favButton as UIView)
             pinView.leftCalloutAccessoryView = favButton
             pinView.rightCalloutAccessoryView = UIButton.buttonWithType(UIButtonType.ContactAdd) as UIButton
-
             return pinView
-            
         }
         return  nil
     }
-
     // Add items to list when searched.
-
-    
-    
-    
     // Add items to map when searched.
     func searchResultsHandler(response: MKLocalSearchResponse!, error: NSError!) -> Void {
         self.mapView.removeAnnotations(self.mapView.annotations!)
+        mapKitRestaurauntResponse.removeAll(keepCapacity: false)
         buildAndSendParseQueryForLocations()
         if let gotError = error {
             println("Error in Search")
@@ -204,7 +210,6 @@ class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelega
                 var id = "id \(intCount)"
                 var restaurant = Restaurant(name: each.name!, coordinate: each.placemark.coordinate)
                 mapKitRestaurauntResponse.append(restaurant)
-                println(each)
                 intCount++
             }
         }
@@ -214,7 +219,8 @@ class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelega
     
     //ask parse for items near user
     func buildAndSendParseQueryForLocations() -> Void {
-        parseRestaurantResponses = []
+        parseRestaurantResponses.removeAll(keepCapacity: false)
+        mergedRestaurauntsList.removeAll(keepCapacity: false)
         var query = PFQuery(className: "Restaurant")
         var location = self.mapView.userLocation.coordinate
         var geoPointCoordinate = PFGeoPoint(latitude: location.latitude, longitude: location.longitude)
@@ -249,9 +255,13 @@ class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelega
         if control == annotationView.leftCalloutAccessoryView {
             NSLog("Left Click")
         } else {
-            NSLog("RIGHT CLICK")
-            annotationView.rightCalloutAccessoryView.hidden = true
-            
+            if annotationView.isMemberOfClass(TTAnnotationView) {
+                var TTView:TTAnnotationView = annotationView as TTAnnotationView
+                NSLog("RIGHT CLICK")
+                NSLog("\(TTView.restaurant?.restaurantName)")
+                addToUserFavorites(TTView.restaurant!)
+                annotationView.rightCalloutAccessoryView.hidden = true
+            }
         }
     }
     
@@ -275,7 +285,8 @@ class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelega
     //combine found lists of items
     func mergeListsToFindCommonResults()
     {
-        mergedRestaurauntsList = []
+        self.mergedRestaurauntsList.removeAll(keepCapacity: false)
+        NSLog("MERGED COUNT: 292: \(mergedRestaurauntsList.count)")
         for pRest in parseRestaurantResponses
         {
             var pRestLoc = CLLocation(latitude: pRest.restaurantCoordinate!.latitude, longitude: pRest.restaurantCoordinate!.longitude)
@@ -286,10 +297,10 @@ class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelega
                 var dist = pRestLoc.distanceFromLocation(mRestLoc)
                 if (dist < 20.0 ){
                     mergedRestaurauntsList.append(pRest)
-//                    if let indexToRemove = find(parseRestaurantResponses, pRest) as Int!
-//                    {
-//                        parseRestaurantResponses.removeAtIndex(indexToRemove)
-//                    }
+                    if let indexToRemove = find(parseRestaurantResponses, pRest) as Int!
+                    {
+                        parseRestaurantResponses.removeAtIndex(indexToRemove)
+                    }
                 }
             }
         }
@@ -324,7 +335,6 @@ class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelega
         {
             println("it's 25")
             searchRadius = 25.0
-
         }
         else if(buttons[radiusIndex] == "10 miles")
         {
@@ -352,6 +362,31 @@ class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelega
     
     
 
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "RestaurantTable" {
+            NSLog("TABLE TIME")
+            var restTableVC = RestaurantTableController()
+            restTableVC = segue.destinationViewController as RestaurantTableController
+            restTableVC.tableData = self.mergedRestaurauntsList
+            NSLog("\(mergedRestaurauntsList)")
+            restTableVC.delegate = self
+        }
+        
+        if segue.identifier == "FavoritesTable" {
+//            var favTable = 
+        }
+    }
+    
+    func addToUserFavorites(restaurant:Restaurant) {
+        if let currUser = PFUser.currentUser() {
+            if !(restaurant.uniqueId == nil) {
+            var resArray:[String] = currUser.valueForKey("Favorites") as [String]
+            resArray.append(restaurant.uniqueId!)
+            currUser.setValue(resArray, forKey: "Favorites")
+            currUser.save()
+            }
+        }
+    }
     
     
 }

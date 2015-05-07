@@ -15,5 +15,4 @@ import MapKit
 
 class TTPointAnnotation: MKPointAnnotation {
         var restaurant:Restaurant?
-    
 }
