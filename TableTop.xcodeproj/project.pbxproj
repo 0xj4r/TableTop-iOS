@@ -13,14 +13,12 @@
 		4E0968461AF01ACA00AF3EAA /* TTPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0968451AF01ACA00AF3EAA /* TTPointAnnotation.swift */; };
 		4E0968481AF01E0800AF3EAA /* TTAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0968471AF01E0800AF3EAA /* TTAnnotationView.swift */; };
 		4E09684A1AF01FA700AF3EAA /* TTAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0968491AF01FA700AF3EAA /* TTAnnotation.swift */; };
-		4E112F2C19BCA07B00BFC322 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E112F2B19BCA07B00BFC322 /* AppDelegate.swift */; };
 		4E112F2E19BCA07B00BFC322 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E112F2D19BCA07B00BFC322 /* ViewController.swift */; };
 		4E112F3119BCA07B00BFC322 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E112F2F19BCA07B00BFC322 /* Main.storyboard */; };
 		4E112F3319BCA07B00BFC322 /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E112F3219BCA07B00BFC322 /* images.xcassets */; };
 		4E112F3F19BCA07B00BFC322 /* TableTopTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E112F3E19BCA07B00BFC322 /* TableTopTests.swift */; };
 		4E112F4B19BCA4DE00BFC322 /* SideBarTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E112F4A19BCA4DE00BFC322 /* SideBarTableViewController.swift */; };
 		4E16FC9F1AFA8FC700D9FFDD /* TTTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E16FC9E1AFA8FC700D9FFDD /* TTTabBarController.swift */; };
-		4E39DB0F1A296457001AAFD7 /* TableTopSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E39DB0E1A296457001AAFD7 /* TableTopSignUpViewController.swift */; };
 		4E4EFE8E19ECD046003699DC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E4EFE8D19ECD046003699DC /* MapKit.framework */; };
 		4E4EFE9019ECD04F003699DC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E4EFE8F19ECD04F003699DC /* CoreLocation.framework */; };
 		4E6104AB19FF6ABD0099A820 /* TableTopLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E6104AA19FF6ABD0099A820 /* TableTopLogo.png */; };
@@ -28,7 +26,6 @@
 		4E6104AF19FF7CD50099A820 /* tabletopapplogobackupicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E6104AE19FF7CD50099A820 /* tabletopapplogobackupicon.png */; };
 		4E640C941AF8227200439355 /* RestaurantTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E640C931AF8227200439355 /* RestaurantTableController.swift */; };
 		4E640C961AF8482600439355 /* FavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E640C951AF8482600439355 /* FavoritesTableViewController.swift */; };
-		4E74E16A19D089B90046B5A9 /* SideBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E74E16919D089B90046B5A9 /* SideBar.swift */; };
 		4EA3F70D1A29560C002AC3E1 /* TableTopLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA3F70C1A29560C002AC3E1 /* TableTopLoginView.swift */; };
 		4ED589681A27A8B6009761E9 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED589671A27A8B6009761E9 /* Accounts.framework */; };
 		4ED589701A27AB02009761E9 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED5896F1A27AB02009761E9 /* Social.framework */; };
@@ -58,6 +55,11 @@
 		7ED705601AFA6EF500A92A54 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ED7055F1AFA6EF500A92A54 /* FBSDKShareKit.framework */; };
 		7ED705621AFA8A2600A92A54 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ED705611AFA8A2600A92A54 /* EventKit.framework */; };
 		7ED705641AFB263400A92A54 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED705631AFB263400A92A54 /* Restaurant.swift */; };
+		7ED705661AFB2A8900A92A54 /* SideBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED705651AFB2A8900A92A54 /* SideBar.swift */; };
+		7ED705681AFB2AAC00A92A54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED705671AFB2AAC00A92A54 /* AppDelegate.swift */; };
+		7ED7056A1AFB2ADE00A92A54 /* TableTopSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED705691AFB2ADE00A92A54 /* TableTopSignUpViewController.swift */; };
+		7ED7056C1AFB2DD000A92A54 /* RestaurantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED7056B1AFB2DD000A92A54 /* RestaurantTableViewCell.swift */; };
+		7ED7056E1AFB499200A92A54 /* OtherRestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED7056D1AFB499200A92A54 /* OtherRestTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,7 +80,6 @@
 		4E0968471AF01E0800AF3EAA /* TTAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTAnnotationView.swift; sourceTree = "<group>"; };
 		4E0968491AF01FA700AF3EAA /* TTAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTAnnotation.swift; sourceTree = "<group>"; };
 		4E112F2619BCA07B00BFC322 /* TableTop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TableTop.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		4E112F2B19BCA07B00BFC322 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4E112F2D19BCA07B00BFC322 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4E112F3019BCA07B00BFC322 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4E112F3219BCA07B00BFC322 /* images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = images.xcassets; sourceTree = "<group>"; };
@@ -87,7 +88,6 @@
 		4E112F3E19BCA07B00BFC322 /* TableTopTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableTopTests.swift; sourceTree = "<group>"; };
 		4E112F4A19BCA4DE00BFC322 /* SideBarTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SideBarTableViewController.swift; path = ../SideBarTableViewController.swift; sourceTree = "<group>"; };
 		4E16FC9E1AFA8FC700D9FFDD /* TTTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTTabBarController.swift; sourceTree = "<group>"; };
-		4E39DB0E1A296457001AAFD7 /* TableTopSignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableTopSignUpViewController.swift; sourceTree = "<group>"; };
 		4E4EFE8D19ECD046003699DC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = ../../../../Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.1.sdk/System/Library/Frameworks/MapKit.framework; sourceTree = "<group>"; };
 		4E4EFE8F19ECD04F003699DC /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = ../../../../Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.1.sdk/System/Library/Frameworks/CoreLocation.framework; sourceTree = "<group>"; };
 		4E6104AA19FF6ABD0099A820 /* TableTopLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TableTopLogo.png; sourceTree = "<group>"; };
@@ -95,7 +95,6 @@
 		4E6104AE19FF7CD50099A820 /* tabletopapplogobackupicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabletopapplogobackupicon.png; sourceTree = "<group>"; };
 		4E640C931AF8227200439355 /* RestaurantTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantTableController.swift; sourceTree = "<group>"; };
 		4E640C951AF8482600439355 /* FavoritesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewController.swift; sourceTree = "<group>"; };
-		4E74E16919D089B90046B5A9 /* SideBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SideBar.swift; path = ../SideBar.swift; sourceTree = "<group>"; };
 		4EA3F7091A29520D002AC3E1 /* TableTop-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TableTop-Bridging-Header.h"; sourceTree = "<group>"; };
 		4EA3F70C1A29560C002AC3E1 /* TableTopLoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableTopLoginView.swift; sourceTree = "<group>"; };
 		4ED589671A27A8B6009761E9 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = ../../../../Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.1.sdk/System/Library/Frameworks/Accounts.framework; sourceTree = "<group>"; };
@@ -129,6 +128,11 @@
 		7ED7055F1AFA6EF500A92A54 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		7ED705611AFA8A2600A92A54 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = ../../../../Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.1.sdk/System/Library/Frameworks/EventKit.framework; sourceTree = "<group>"; };
 		7ED705631AFB263400A92A54 /* Restaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		7ED705651AFB2A8900A92A54 /* SideBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideBar.swift; sourceTree = "<group>"; };
+		7ED705671AFB2AAC00A92A54 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7ED705691AFB2ADE00A92A54 /* TableTopSignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableTopSignUpViewController.swift; sourceTree = "<group>"; };
+		7ED7056B1AFB2DD000A92A54 /* RestaurantTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewCell.swift; sourceTree = "<group>"; };
+		7ED7056D1AFB499200A92A54 /* OtherRestTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherRestTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,25 +204,27 @@
 		4E112F2819BCA07B00BFC322 /* TableTop */ = {
 			isa = PBXGroup;
 			children = (
-				4E16FC9E1AFA8FC700D9FFDD /* TTTabBarController.swift */,
+				7ED705691AFB2ADE00A92A54 /* TableTopSignUpViewController.swift */,
+				7ED705671AFB2AAC00A92A54 /* AppDelegate.swift */,
 				4E640C951AF8482600439355 /* FavoritesTableViewController.swift */,
-				4E640C931AF8227200439355 /* RestaurantTableController.swift */,
-				4E112F2B19BCA07B00BFC322 /* AppDelegate.swift */,
-				4E112F4A19BCA4DE00BFC322 /* SideBarTableViewController.swift */,
-				4EA3F70C1A29560C002AC3E1 /* TableTopLoginView.swift */,
-				4E39DB0E1A296457001AAFD7 /* TableTopSignUpViewController.swift */,
-				4E112F2D19BCA07B00BFC322 /* ViewController.swift */,
 				7ED7055D1AFA622100A92A54 /* Globals.swift */,
+				4E112F3219BCA07B00BFC322 /* images.xcassets */,
+				7EBA413F1ACBB4EF00BF114A /* Info.plist */,
 				4E112F2F19BCA07B00BFC322 /* Main.storyboard */,
+				7ED705631AFB263400A92A54 /* Restaurant.swift */,
+				4E640C931AF8227200439355 /* RestaurantTableController.swift */,
+				7ED705651AFB2A8900A92A54 /* SideBar.swift */,
+				4E112F4A19BCA4DE00BFC322 /* SideBarTableViewController.swift */,
+				4E112F2919BCA07B00BFC322 /* Supporting Files */,
+				4EA3F7091A29520D002AC3E1 /* TableTop-Bridging-Header.h */,
+				4EA3F70C1A29560C002AC3E1 /* TableTopLoginView.swift */,
+				4E0968491AF01FA700AF3EAA /* TTAnnotation.swift */,
 				4E0968471AF01E0800AF3EAA /* TTAnnotationView.swift */,
 				4E0968451AF01ACA00AF3EAA /* TTPointAnnotation.swift */,
-				4E0968491AF01FA700AF3EAA /* TTAnnotation.swift */,
-				7ED705631AFB263400A92A54 /* Restaurant.swift */,
-				4E74E16919D089B90046B5A9 /* SideBar.swift */,
-				7EBA413F1ACBB4EF00BF114A /* Info.plist */,
-				4E112F3219BCA07B00BFC322 /* images.xcassets */,
-				4EA3F7091A29520D002AC3E1 /* TableTop-Bridging-Header.h */,
-				4E112F2919BCA07B00BFC322 /* Supporting Files */,
+				4E16FC9E1AFA8FC700D9FFDD /* TTTabBarController.swift */,
+				4E112F2D19BCA07B00BFC322 /* ViewController.swift */,
+				7ED7056B1AFB2DD000A92A54 /* RestaurantTableViewCell.swift */,
+				7ED7056D1AFB499200A92A54 /* OtherRestTableViewCell.swift */,
 			);
 			path = TableTop;
 			sourceTree = "<group>";
@@ -396,16 +402,15 @@
 				4E640C961AF8482600439355 /* FavoritesTableViewController.swift in Sources */,
 				4E640C941AF8227200439355 /* RestaurantTableController.swift in Sources */,
 				4EA3F70D1A29560C002AC3E1 /* TableTopLoginView.swift in Sources */,
-				4E74E16A19D089B90046B5A9 /* SideBar.swift in Sources */,
-				4E112F2C19BCA07B00BFC322 /* AppDelegate.swift in Sources */,
-				4E39DB0F1A296457001AAFD7 /* TableTopSignUpViewController.swift in Sources */,
 				7ED7055E1AFA622100A92A54 /* Globals.swift in Sources */,
 				4E09684A1AF01FA700AF3EAA /* TTAnnotation.swift in Sources */,
-				4E74E16A19D089B90046B5A9 /* SideBar.swift in Sources */,
+				7ED705681AFB2AAC00A92A54 /* AppDelegate.swift in Sources */,
+				7ED7056A1AFB2ADE00A92A54 /* TableTopSignUpViewController.swift in Sources */,
+				7ED7056E1AFB499200A92A54 /* OtherRestTableViewCell.swift in Sources */,
+				7ED7056C1AFB2DD000A92A54 /* RestaurantTableViewCell.swift in Sources */,
 				7ED705641AFB263400A92A54 /* Restaurant.swift in Sources */,
-				4E112F2C19BCA07B00BFC322 /* AppDelegate.swift in Sources */,
-				4E39DB0F1A296457001AAFD7 /* TableTopSignUpViewController.swift in Sources */,
 				4E0968461AF01ACA00AF3EAA /* TTPointAnnotation.swift in Sources */,
+				7ED705661AFB2A8900A92A54 /* SideBar.swift in Sources */,
 				4E16FC9F1AFA8FC700D9FFDD /* TTTabBarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

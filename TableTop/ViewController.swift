@@ -27,13 +27,14 @@ import FBSDKCoreKit
 import FBSDKShareKit
 import EventKit
 
-class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelegate, MKMapViewDelegate, UISearchBarDelegate, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate {
+class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelegate, MKMapViewDelegate, UISearchBarDelegate, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate, RestaurantTableControllerDelegate {
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var navBar: UINavigationItem!
-   // @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var mapView: MKMapView!
-
+    
+    
+    
     var sideBar:SideBar = SideBar()
     var cllManager = CLLocationManager()
     var locDelegate:CLLocationManagerDelegate!
@@ -46,51 +47,38 @@ class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelega
         static var currentToken = FBSDKAccessToken()
     }
     let eventStore = EKEventStore()
+
+    var barMenu = ["Josh Ransom", "Balance: 45.00", "Account", "Charities", "Events"]
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if(PFUser.currentUser() == nil){
-            
-            
-            var logInViewController = TableTopLoginView()
-            logInViewController.delegate = self
-            
-            var signUpViewController = TableTopSignUpViewController ()
-            signUpViewController.delegate = self
-            logInViewController.signUpController=signUpViewController
-            
-            logInViewController.fields = PFLogInFields.Default | PFLogInFields.Twitter | PFLogInFields.Facebook | PFLogInFields.DismissButton | PFLogInFields.SignUpButton
-           
-            self.presentViewController(logInViewController, animated: true , completion: nil)
-            
-        }
-        searchRadius = 5.0
-        
-        var locAuthCheck = CLLocationManager.locationServicesEnabled() // Checks to see if the app has permission for user's location.
-        
-        
+        self.mapView.delegate = self
+        self.mapView.showsUserLocation = true
         cllManager.desiredAccuracy = kCLLocationAccuracyBest
-        cllManager.distanceFilter = 10.0 // 100 meters between updates.
+        cllManager.distanceFilter = 100.0 // 100 meters between updates.
         cllManager.requestWhenInUseAuthorization()
         cllManager.startUpdatingLocation()
+        sideBar.sideBarTableViewController.tableData = barMenu
         
+        checkForCurrentUser()
+        searchRadius = 5.0
         
         var latDelta:CLLocationDegrees = 0.01
         var longDelta:CLLocationDegrees = 0.01
-        
         var theSpan:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, longDelta)
 
         
         var tab =  self.tabBarController?.tabBar
         tab?.tintColor = UIColor.whiteColor()
-        self.mapView.delegate = self
-        self.mapView.showsUserLocation = true
+        
 
         
-        sideBar = SideBar(sourceView: self.view, menuItems:["Josh Ransom", "Balance: 45.00", "Account", "Charities", "Events"])
+        sideBar = SideBar(sourceView: self.view, menuItems: barMenu)
         sideBar.delegate = self
         // Do any additional setup after loading the view, typically from a nib.
         self.searchBar.delegate = self
+
 
     }
 
@@ -99,62 +87,28 @@ class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelega
                // attemptFBLogin()
                 return true
             }
-            
             var alert = UIAlertView(title: "Missing Information", message: "Make sure you fill out all of the information", delegate: nil, cancelButtonTitle: "ok", otherButtonTitles: "")
             alert.show()
             return false
-            
-        }
-        
-        func logInViewController(logInController: PFLogInViewController!, didLogInUser user: PFUser!) {
-            
-            self.dismissViewControllerAnimated(true , completion: nil)
-            
-        }
-        
-        
-        func logInViewController(logInController: PFLogInViewController!, didFailToLogInWithError error: NSError!) {
-            NSLog("Could not log in. Please try again")
-            
-        }
-        
-        func signUpViewController(signUpController: PFSignUpViewController!, didSignUpUser user: PFUser!) {
-            self.dismissViewControllerAnimated(true , completion: nil)
-            
-        }
-        
-        func signUpViewController(signUpController: PFSignUpViewController!, didFailToSignUpWithError error: NSError!) {
-            NSLog("Failed to Signup")
-        }
-        
-        
-        func signUpViewControllerDidCancelSignUp(signUpController: PFSignUpViewController!) {
-            NSLog("User dismissed signup")
         }
     
-        
-        
-        
-        
-    
-        
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-     func sideBarDidSelectButtonAtIndex(index: Int) {
+    func sideBarDidSelectButtonAtIndex(index: Int) {
         if index == 0 {
+            NSLog("INDEX 0")
         } else if index == 1{
                   }
     }
     
-    
-    
     @IBAction func searchBarButtonClicked(sender: UIBarButtonItem) {
         if self.searchBar.hidden {
+            updateUserLocation()
+            self.searchBar.becomeFirstResponder() // Automatically prepare to edit text
             self.searchBar.hidden = false
-            
             NSLog("Not Hidden")
         } else {
             self.searchBar.hidden = true
@@ -164,7 +118,7 @@ class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelega
     }
     
     func mapView(mapView: MKMapView!, didUpdateUserLocation userLocation: MKUserLocation!) {
-        self.mapView.setRegion(MKCoordinateRegionMake(self.mapView.userLocation.coordinate, MKCoordinateSpanMake(0.01, 0.01)), animated: true)
+        self.mapView.setRegion(MKCoordinateRegionMake(self.mapView.userLocation.coordinate, MKCoordinateSpanMake(0.0081, 0.0081)), animated: true)
     }
         // Not used.
     
@@ -173,16 +127,33 @@ class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelega
             sideBar.showSideBar(false)
         }
         else {
-            sideBar.showSideBar(true) }
+            sideBar.showSideBar(true)
+        }
     }
 
+    func checkForCurrentUser() {
+        if(PFUser.currentUser() == nil){
+            var logInViewController = TableTopLoginView()
+            var signUpViewController = TableTopSignUpViewController ()
+            logInViewController.delegate = self
+            signUpViewController.delegate = self
+            logInViewController.signUpController=signUpViewController
+            logInViewController.fields = PFLogInFields.Default | PFLogInFields.Twitter | PFLogInFields.Facebook | PFLogInFields.DismissButton | PFLogInFields.SignUpButton
+            self.presentViewController(logInViewController, animated: true , completion: nil)
+        }
+    }
+    
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         self.searchBar.resignFirstResponder()
+        mergedRestaurauntsList.removeAll(keepCapacity: false)
         setRadiusValue()
+        
+        sideBar.sideBarTableViewController.tableView.reloadData()
+        
+        
         var searchRequest = MKLocalSearchRequest()
             searchRequest.naturalLanguageQuery = self.searchBar.text
         var requestToQueryParse = self.searchBar.text
-        //searchRequest.region = MKCoordinateRegionMake(self.mapView.userLocation.coordinate, MKCoordinateSpanMake(0.01, 0.01))
         searchRequest.region = MKCoordinateRegionMakeWithDistance(self.mapView.userLocation.coordinate, MilesToMeters(searchRadius), MilesToMeters(searchRadius))
         var localSearch = MKLocalSearch(request: searchRequest)
         var searchResponse = MKLocalSearchResponse()
@@ -194,18 +165,54 @@ class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelega
         searchBar.resignFirstResponder()
     }
     
-    // Add items to list when searched.
+   
     
+    
+
+    func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
+        if (annotation.isKindOfClass(MKUserLocation)){
+            return nil
+        }
+        if(annotation.isKindOfClass(MKPointAnnotation)) {
+            var pinView = TTAnnotationView( annotation: annotation, reuseIdentifier: "CustomPinAnnotationView")
+            var thisRest:Restaurant?
+            for each:Restaurant in mergedRestaurauntsList {
+                if each.restaurantCoordinate?.latitude == annotation.coordinate.latitude && each.restaurantCoordinate?.longitude == annotation.coordinate.longitude {
+                    NSLog("GOT IT")
+                        NSLog("\(each.restaurantName)")
+                    thisRest = each
+                }
+            }
+            pinView.canShowCallout = true
+            pinView.restaurant = thisRest
+            var annotationIcon = UIImage(named: "tabletopmapicon.png")
+            pinView.image = annotationIcon
+            pinView.calloutOffset = CGPointMake(0, 0)
+            pinView.tintColor = UIColor.lightGrayColor()
+            var favoritesImage = UIImage(named: "checkedStar.png")
+            var frame = CGRect(x: 0, y: 0, width: 40, height: 40)
+            var buttonView = UIView(frame: frame)
+            var favButton:UIButton = UIButton.buttonWithType(UIButtonType.Custom) as UIButton
+            favButton.setImage(favoritesImage, forState: .Normal)
+            favButton.setImage(UIImage(named: "uncheckedStar.png"), forState: UIControlState.Selected)
+            buttonView.addSubview(favButton as UIView)
+            pinView.leftCalloutAccessoryView = favButton
+            pinView.rightCalloutAccessoryView = UIButton.buttonWithType(UIButtonType.ContactAdd) as UIButton
+            return pinView
+        }
+        return  nil
+    }
+    // Add items to list when searched.
+    // Add items to map when searched.
     func searchResultsHandler(response: MKLocalSearchResponse!, error: NSError!) -> Void {
+        self.mapView.removeAnnotations(self.mapView.annotations!)
+        mapKitRestaurauntResponse.removeAll(keepCapacity: false)
         buildAndSendParseQueryForLocations()
         if let gotError = error {
             println("Error in Search")
         }
         else
         {
-        self.mapView.removeAnnotations(self.mapView.annotations!)
-        
-        //println("COUNT : \(response.mapItems.count)")
             var placemarks:[CLPlacemark] = []
             var items: [MKMapItem] = response.mapItems as [MKMapItem]
             var intCount = 0
@@ -213,20 +220,20 @@ class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelega
                 var id = "id \(intCount)"
                 var restaurant = Restaurant(name: each.name!, coordinate: each.placemark.coordinate)
                 mapKitRestaurauntResponse.append(restaurant)
-                println(each)
                 intCount++
             }
-            
         }
     }
     
+    
+    
     //ask parse for items near user
     func buildAndSendParseQueryForLocations() -> Void {
-        parseRestaurantResponses = []
+        parseRestaurantResponses.removeAll(keepCapacity: false)
+        mergedRestaurauntsList.removeAll(keepCapacity: false)
         var query = PFQuery(className: "Restaurant")
         var location = self.mapView.userLocation.coordinate
         var geoPointCoordinate = PFGeoPoint(latitude: location.latitude, longitude: location.longitude)
-        println(geoPointCoordinate)
         query.whereKey("latLong", nearGeoPoint: geoPointCoordinate, withinMiles: MilesToMeters(searchRadius))
         query.findObjectsInBackgroundWithBlock {
             (objects: [AnyObject]!, error: NSError!) -> Void in
@@ -252,11 +259,45 @@ class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelega
             }
         }
     }
+
+
+    func mapView(mapView: MKMapView!, annotationView: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        NSLog("BAR")
+        if control == annotationView.leftCalloutAccessoryView {
+            NSLog("Left Click")
+        } else {
+            if annotationView.isMemberOfClass(TTAnnotationView) {
+                var TTView:TTAnnotationView = annotationView as TTAnnotationView
+                NSLog("RIGHT CLICK")
+                NSLog("\(TTView.restaurant?.restaurantName)")
+                addToUserFavorites(TTView.restaurant!)
+                annotationView.rightCalloutAccessoryView.hidden = true
+            }
+        }
+    }
+    
+    func logInViewController(logInController: PFLogInViewController!, didLogInUser user: PFUser!) {
+        self.dismissViewControllerAnimated(true , completion: nil)
+    }
+    func logInViewController(logInController: PFLogInViewController!, didFailToLogInWithError error: NSError!) {
+        NSLog("Could not log in. Please try again")
+    }
+    func signUpViewController(signUpController: PFSignUpViewController!, didSignUpUser user: PFUser!) {
+        self.dismissViewControllerAnimated(true , completion: nil)
+    }
+    func signUpViewController(signUpController: PFSignUpViewController!, didFailToSignUpWithError error: NSError!) {
+        NSLog("Failed to Signup")
+    }
+    func signUpViewControllerDidCancelSignUp(signUpController: PFSignUpViewController!) {
+        NSLog("User dismissed signup")
+    }
+
     
     //combine found lists of items
     func mergeListsToFindCommonResults()
     {
-        mergedRestaurauntsList = []
+        self.mergedRestaurauntsList.removeAll(keepCapacity: false)
+        NSLog("MERGED COUNT: 292: \(mergedRestaurauntsList.count)")
         for pRest in parseRestaurantResponses
         {
             var pRestLoc = CLLocation(latitude: pRest.restaurantCoordinate!.latitude, longitude: pRest.restaurantCoordinate!.longitude)
@@ -282,7 +323,7 @@ class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelega
         self.mapView.removeAnnotations(self.mapView.annotations!)
         for restaurant in mergedRestaurauntsList
         {
-            var myAnnotation = MKPointAnnotation()
+            var myAnnotation = TTPointAnnotation()
             myAnnotation.title = restaurant.restaurantName
             myAnnotation.coordinate = restaurant.restaurantCoordinate!
             var annoView = MKPinAnnotationView(annotation: myAnnotation, reuseIdentifier: restaurant.uniqueId!)
@@ -306,7 +347,6 @@ class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelega
         {
             println("it's 25")
             searchRadius = 25.0
-
         }
         else if(buttons[radiusIndex] == "10 miles")
         {
@@ -326,21 +366,14 @@ class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelega
         self.mapView.setRegion(region, animated: true)
     }
     
-    func attemptFBPost(/*postString: String*/)
+    func attemptFBPost(restaurant: Restaurant)
     {
-       //var isEqualTo = (FBSDKAccessToken.currentAccessToken().tokenString == Globals.global.currentToken.tokenString)
-        //if(Globals.global.currentToken.tokenString == "")
-        //{
-         //   println("not Signed in to facebook")
-        //}
-        //if(isEqualTo)
-        //{
-            var content = FBSDKShareLinkContent()
-            content.contentTitle = "Charitable Giving, Food Discounts."
-            content.contentURL = NSURL(string: "https://www.tabletop.com")
-            content.contentDescription = "Introducing TableTop, an all new way to give charitably, while you do what you alread love doing - Eating at Restaurants"
-            FBSDKShareDialog.showFromViewController(self, withContent: content, delegate: nil)
-        //}
+        var content = FBSDKShareLinkContent()
+        content.contentTitle = "Is getting charitable at "+restaurant.restaurantName!
+        content.contentURL = NSURL(string: "https://www.tabletop.com")
+        content.contentDescription = "Introducing TableTop, an all new way to give charitably, while you do what you alread love doing - Eating at Restaurants"
+        FBSDKShareDialog.showFromViewController(self, withContent: content, delegate: nil)
+        
     }
     
     func addEventToCal(selectedRestaurant: Restaurant)
@@ -395,6 +428,34 @@ class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelega
         
         
     }
+    func updateUserLocation() {
+        cllManager.startUpdatingLocation()
+        mapView.showsUserLocation = true;
+    }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "RestaurantTable" {
+            NSLog("TABLE TIME")
+            var restTableVC = RestaurantTableController()
+            restTableVC = segue.destinationViewController as RestaurantTableController
+            restTableVC.tableData = self.mergedRestaurauntsList
+            NSLog("\(mergedRestaurauntsList)")
+            restTableVC.delegate = self
+        }
+        
+        if segue.identifier == "FavoritesTable" {
+            //            var favTable =
+        }
+    }
     
+    func addToUserFavorites(restaurant:Restaurant) {
+        if let currUser = PFUser.currentUser() {
+            if !(restaurant.uniqueId == nil) {
+                var resArray:[String] = currUser.valueForKey("Favorites") as [String]
+                resArray.append(restaurant.uniqueId!)
+                currUser.setValue(resArray, forKey: "Favorites")
+                currUser.save()
+            }
+        }
+    }
 }
 

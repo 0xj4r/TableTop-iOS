@@ -9,6 +9,7 @@ import UIKit
 import Foundation
 
 class TableTopSignUpViewController: PFSignUpViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
