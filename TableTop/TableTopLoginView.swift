@@ -8,6 +8,8 @@
 
 import UIKit
 import Foundation
+import FBSDKLoginKit
+import FBSDKCoreKit
 
 class TableTopLoginView: PFLogInViewController {
 
@@ -19,9 +21,25 @@ class TableTopLoginView: PFLogInViewController {
         self.logInView.backgroundColor = colorize(0xED8337, alpha: 1.0)
             //UIColor(red: 237, green: 131, blue: 55, alpha: 1)
        self.logInView.logo.sizeThatFits(CGSizeMake(self.view.frame.width, 250))
-
-
         
+    }
+    
+    func _loginWithFacebook() {
+        println("hello")
+        FBSDKLoginManager().logInWithReadPermissions([], handler: { (result:FBSDKLoginManagerLoginResult!, error:NSError!) -> Void in
+            if error != nil {
+                //error
+            }else if result.isCancelled{
+                //cancelled
+            }else{
+                //success
+                println("FBLOGIN Success")
+                FBSDKAccessToken.setCurrentAccessToken(result.token)
+                Globals.global.currentToken = result.token
+                println(Globals.global.currentToken)
+                self.dismissViewControllerAnimated(true, completion: nil)
+            }
+        })
     }
     
     override func viewDidLayoutSubviews() {

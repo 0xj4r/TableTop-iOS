@@ -21,8 +21,10 @@ import UIKit
 import MapKit
 import CoreLocation
 import MobileCoreServices
-
-
+import Social
+import FBSDKLoginKit
+import FBSDKCoreKit
+import FBSDKShareKit
 
 class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelegate, MKMapViewDelegate, UISearchBarDelegate, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate {
     
@@ -38,6 +40,10 @@ class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelega
     var parseRestaurantResponses = [Restaurant]()
     var mergedRestaurauntsList = [Restaurant]()
     var searchRadius = Double()
+    var accessToken = FBSDKAccessToken()
+    struct accessT{
+        static var currentToken = FBSDKAccessToken()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         if(PFUser.currentUser() == nil){
@@ -87,6 +93,7 @@ class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelega
 
         func logInViewController(logInController: PFLogInViewController!, shouldBeginLogInWithUsername username: String!, password: String!) -> Bool {
             if (username != nil && password != nil) {
+               // attemptFBLogin()
                 return true
             }
             
@@ -313,5 +320,23 @@ class ViewController: UIViewController, SideBarDelegate, CLLocationManagerDelega
         var region = MKCoordinateRegionMakeWithDistance(self.mapView.userLocation.coordinate, MilesToMeters(searchRadius), MilesToMeters(searchRadius))
         self.mapView.setRegion(region, animated: true)
     }
+    
+    func AttemptFBPost(/*postString: String*/)
+    {
+       //var isEqualTo = (FBSDKAccessToken.currentAccessToken().tokenString == Globals.global.currentToken.tokenString)
+        //if(Globals.global.currentToken.tokenString == "")
+        //{
+         //   println("not Signed in to facebook")
+        //}
+        //if(isEqualTo)
+        //{
+            var content = FBSDKShareLinkContent()
+            content.contentTitle = "Charitable Giving, Food Discounts."
+            content.contentURL = NSURL(string: "https://www.tabletop.com")
+            content.contentDescription = "Introducing TableTop, an all new way to give charitably, while you do what you alread love doing - Eating at Restaurants"
+            FBSDKShareDialog.showFromViewController(self, withContent: content, delegate: nil)
+        //}
+    }
+    
 }
 
